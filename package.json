@@ -1,0 +1,38 @@
+{
+  "name": "refactoring-practice",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hands-on TypeScript exercises for Martin Fowler's Refactoring (2nd ed.)",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:solutions": "SOLUTIONS=1 vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "oxlint",
+    "lint:strict": "oxlint -c .oxlintrc.strict.json",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "typecheck": "tsx scripts/typecheck.ts",
+    "validate": "tsx scripts/validate.ts",
+    "index": "tsx scripts/build-index.ts",
+    "new": "tsx scripts/new-exercise.ts",
+    "diff": "tsx scripts/diff.ts",
+    "start": "tsx scripts/start.ts",
+    "check": "npm run validate && npm run index -- --check && npm run lint && npm run lint:solutions && npm run format:check && npm run typecheck && npm test && npm run test:solutions && npm run test:coverage",
+    "lint:solutions": "tsx scripts/lint-solutions.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@vitest/coverage-v8": "4.1.11",
+    "oxfmt": "0.65.0",
+    "oxlint": "1.80.0",
+    "tsx": "4.23.12",
+    "typescript": "7.0.2",
+    "vitest": "4.1.11"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

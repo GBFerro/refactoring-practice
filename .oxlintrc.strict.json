@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "oxc"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error"
+  },
+  "ignorePatterns": ["node_modules", "coverage"],
+  "rules": {
+    "eslint/complexity": ["error", { "max": 5 }],
+    "eslint/max-lines-per-function": [
+      "error",
+      { "max": 12, "skipBlankLines": true, "skipComments": true }
+    ],
+    "eslint/max-depth": ["error", { "max": 2 }],
+    "eslint/max-params": ["error", { "max": 3 }],
+    "eslint/max-nested-callbacks": ["error", { "max": 2 }]
+  }
+}

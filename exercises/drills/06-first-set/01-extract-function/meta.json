@@ -1,0 +1,21 @@
+{
+  "id": "drill-06-01",
+  "title": "Extract Function",
+  "type": "drill",
+  "chapter": 6,
+  "refactorings": ["Extract Function"],
+  "smells": ["Long Function", "Comments", "Duplicated Code"],
+  "difficulty": 1,
+  "estimatedMinutes": 25,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en", "pt"],
+  "solutions": [
+    {
+      "slug": "extract-function",
+      "title": "One function per named intention",
+      "tradeoff": "More functions to name, and the top-level function reads as a table of contents rather than as a procedure."
+    }
+  ]
+}
