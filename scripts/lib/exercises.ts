@@ -1,5 +1,6 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
+import process from "node:process";
 
 export const ROOT = path.resolve(import.meta.dirname, "..", "..");
 export const EXERCISES_DIR = path.join(ROOT, "exercises");
@@ -27,6 +28,8 @@ export interface Meta {
   translations: string[];
   solutions: SolutionMeta[];
   coverageTargets?: string[];
+  /** Exercise-specific things a reviewer should weigh hardest (docs/REVIEW.md). */
+  reviewFocus?: string[];
   allowMultipleSolutions?: boolean;
   allowMultipleSolutionsReason?: string;
 }
@@ -83,12 +86,39 @@ export function loadExercise(dir: string): Exercise {
   };
 }
 
+/**
+ * Resolves whatever the user typed. `06-01`, `drill-06-01`, `extract-function` and
+ * `Extract Function` all find the same exercise, so nobody has to memorise the id scheme.
+ */
 export function findExercise(exercises: Exercise[], query: string): Exercise | undefined {
-  return (
-    exercises.find((e) => e.meta.id === query) ??
-    exercises.find((e) => e.relDir.endsWith(`/${query}`)) ??
-    exercises.find((e) => e.relDir.includes(query))
+  const needle = query.toLowerCase();
+  const rules = [
+    (exercise: Exercise) => exercise.meta.id === needle,
+    (exercise: Exercise) => exercise.meta.id.endsWith(needle),
+    (exercise: Exercise) => exercise.meta.id.includes(needle),
+    (exercise: Exercise) => exercise.relDir.toLowerCase().includes(needle),
+    (exercise: Exercise) => exercise.meta.title.toLowerCase().includes(needle),
+  ];
+  for (const rule of rules) {
+    const hit = exercises.find(rule);
+    if (hit !== undefined) return hit;
+  }
+  return undefined;
+}
+
+/** Looks an exercise up, or exits with the list - every command needs this. */
+export function requireExercise(query: string | undefined): Exercise {
+  const exercises = discoverExercises();
+  const found = query === undefined ? undefined : findExercise(exercises, query);
+  if (found !== undefined) return found;
+  console.error(
+    query === undefined ? "✗ which exercise?" : `✗ no exercise matches "${query}"`,
   );
+  console.error("\nAvailable:");
+  for (const exercise of exercises) {
+    console.error(`  ${exercise.meta.id.padEnd(14)} ${exercise.meta.title}`);
+  }
+  process.exit(2);
 }
 
 function names(file: string): string[] {

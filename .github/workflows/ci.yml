@@ -21,28 +21,5 @@ jobs:
       - run: npm ci
 
       # The value of this repository is that main is always pristine and green.
-      - name: Metadata and generated files
-        run: |
-          npm run validate
-          npm run index -- --check
-
-      - name: Baseline is green
-        run: npm test
-
-      - name: Every solution passes the same suite
-        run: npm run test:solutions
-
-      - name: Safety nets cover what the katas will move
-        run: npm run test:coverage
-
-      - name: Solutions meet the strict bar
-        run: npm run lint:solutions
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Formatting
-        run: npm run format:check
-
-      - name: Types
-        run: npm run typecheck
+      # `rp check` runs the same nine steps locally, in fail-fastest order.
+      - run: ./rp check

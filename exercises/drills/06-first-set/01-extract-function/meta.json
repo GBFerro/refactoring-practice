@@ -17,5 +17,12 @@
       "title": "One function per named intention",
       "tradeoff": "More functions to name, and the top-level function reads as a table of contents rather than as a procedure."
     }
+  ],
+  "reviewFocus": [
+    "Was the duplicated chip-time formatting removed, or merely extracted twice under two names?",
+    "Did the running pace total survive as a mutable accumulator? If so, why - and does the reason hold?",
+    "Are any `?? 0` fallbacks left in src/? Each one is a place where the filter and the formatting are still tangled.",
+    "Do the extracted names distinguish `format*` (a value to a string) from `render*` (a piece of the domain to output lines)?",
+    "Count the extracted functions. Ten is one defensible answer; four and twenty are both worth a paragraph."
   ]
 }

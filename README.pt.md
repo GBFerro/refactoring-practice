@@ -16,8 +16,10 @@ Os **drills** dizem qual refactoring aplicar e treinam a mecânica. Os **katas**
 
 ```bash
 npm install
-npm start -- drill-06-01     # print the brief and run the suite in watch mode
-npm run diff -- drill-06-01  # compare with the published solutions (once green)
+./rp                 # list the exercises
+./rp start 06-01     # print the brief, watch this exercise only
+./rp diff 06-01      # compare with the solutions (refuses while your suite is red)
+./rp review 06-01    # build a packet for an AI reviewer
 ```
 
 ## Exercises
@@ -56,7 +58,7 @@ _Nenhum exercício neste módulo ainda._
 
 ## Por onde seguir
 
-- [How to practice](./docs/HOW-TO-PRACTICE.md)
+- [How to practice](./docs/HOW-TO-PRACTICE.md) · [Naming](./docs/NAMING.md) · [Review rubric](./docs/REVIEW.md)
 - [Catalog coverage](./docs/CATALOG.md) · [Smell index](./docs/SMELLS.md)
 - [Design notes](./docs/DESIGN.md) · [Contributing](./CONTRIBUTING.md)
 

@@ -32,12 +32,16 @@ gh repo fork <you>/refactoring-practice --clone
 cd refactoring-practice && npm install
 git switch -c practice
 
-npm start -- drill-06-01          # prints the brief, watches that exercise only
+./rp start 06-01     # prints the brief, watches that exercise only
 #  ... you edit src/, tests stay green, you commit every step ...
 
-npm run lint:strict -- exercises/drills/06-first-set/01-extract-function/src
-npm run diff -- drill-06-01 --steps
+./rp names 06-01     # advisory pass over the names you chose
+./rp diff 06-01 --steps
+./rp review 06-01 --out
 ```
+
+Everything is `./rp <command>`. Exercise ids are fuzzy — `06-01`, `drill-06-01`,
+`extract-function` and `"Extract Function"` all find the same one.
 
 `main` is always pristine. You work on a branch, so starting over is:
 
@@ -51,14 +55,28 @@ No reset script, no duplicated baseline folder — the baseline is the history i
 
 | Command | What it does |
 | --- | --- |
-| `npm start -- <id>` | Prints the brief (add `--pt` for pt-BR) and watches that exercise |
+| `./rp` | Lists the exercises |
+| `./rp start <id>` | Prints the brief (add `--pt` for pt-BR) and watches that exercise |
+| `./rp diff <id> --steps` | The route the solution took. **Start here**, not with the code |
+| `./rp diff <id> --walkthrough` | The long form: why each move, the naming, the dead ends |
+| `./rp diff <id>` | The code diff. Expect noise; see below |
+| `./rp names <id>` | Advisory pass over your names — see [Naming](./NAMING.md) |
+| `./rp review <id> --out` | Builds a review packet for an AI or a person — see [Review](./REVIEW.md) |
+| `./rp check` | Everything CI runs |
 | `npm test` | Every exercise, against `src/` — should always be green |
 | `npm run lint:strict -- <path>` | The objective half of "done when": size, depth, parameters |
-| `npm run diff -- <id>` | Compares with the solutions — refuses while your suite is red |
-| `npm run diff -- <id> --steps` | Shows the route instead of the destination. Start here |
-| `npm run test:solutions` | Runs the same suites against every published solution |
 
-## Two honest notes about `npm run diff`
+## Getting reviewed
+
+`./rp review <id> --out` writes a file containing the rubric, the brief, the untouched test
+suite, your code and your commit log — ready to paste into an AI. It deliberately **leaves
+the published solutions out**, because a reviewer holding an answer key grades similarity
+instead of quality, and more than one decomposition is correct.
+
+It refuses while your suite is red, for the same reason `diff` does: a review of a red
+suite has exactly one finding, and you already have it.
+
+## Two honest notes about `./rp diff`
 
 **The gate is a nudge, not a lock.** `cat solutions/*/*.ts` will always work. The script
 guards against the impulse, not the intention, and it would be silly to pretend otherwise.

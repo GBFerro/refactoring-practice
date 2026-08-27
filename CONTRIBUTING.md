@@ -13,8 +13,8 @@ refactoring one step at a time, produces exactly the kind of mess the book descr
 `STEPS.md` falls out almost for free: read your own commits backwards.
 
 ```bash
-npm run new -- --type drill --chapter 10 --title "Decompose Conditional" \
-               --refactoring "Decompose Conditional" --smell "Long Function"
+./rp new --type drill --chapter 10 --title "Decompose Conditional" \
+         --refactoring "Decompose Conditional" --smell "Long Function"
 ```
 
 Then:
@@ -23,8 +23,22 @@ Then:
 2. Write the tests in `tests/`, importing from `@exercise`. They must be green.
 3. Copy the clean code to `src/` and **un-refactor it**, step by step, running the suite
    after each step. Every step you undo is a step the reader will redo.
-4. Write `STEPS.md` from your undo log, reversed.
-5. `npm run index && npm run validate`.
+4. Write `STEPS.md` from your undo log, reversed — terse, one line per move.
+5. Write `WALKTHROUGH.md` — the commentary. Why each move, why in that order, what each
+   name had to earn, what it cost, and which alternatives are equally defensible.
+6. `./rp index && ./rp validate`.
+
+### On the tests
+
+Write **one test per behaviour a plausible refactoring of this file could silently
+change** — not one per line, and not to a coverage number. The reference drill reached 100%
+line coverage with half its final suite; coverage tells you which code ran, never which
+promises are pinned.
+
+The usual suspects, all of which a well-meaning extraction can break: ordering and sort
+stability, ties, the empty and single-element cases, boundary values in any rounding or
+formatting, and layout behaviour like overflow versus truncation. Name the move you are
+guarding against in a comment above each test.
 
 ## The rules the validator enforces
 
@@ -39,8 +53,19 @@ Then:
   exercise is a large drill.
 - **Every solution declares its trade-off.** A variant that cannot name what it costs is
   not ready.
+- **Every solution has both `STEPS.md` and `WALKTHROUGH.md`.** The first is the route, the
+  second is the reasoning. A route without commentary teaches the moves and not the
+  judgement.
 - **An exercise without tests must declare `coverageTargets`** — the files whose branches
   the reader's safety net has to pin at 100%.
+
+## Naming
+
+Function names are not in the book's catalog as a skill, only as moves (*Rename Variable*,
+*Mysterious Name*). They are treated as first-class here anyway, because Extract Function
+is a naming exercise wearing a mechanical costume. Every `WALKTHROUGH.md` says which of the
+four questions in [`docs/NAMING.md`](./docs/NAMING.md) decided a name and which candidate
+was rejected. `./rp names <id>` catches the vague ones; it cannot catch the untrue ones.
 
 ## What counts as a second solution
 

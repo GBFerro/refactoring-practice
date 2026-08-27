@@ -836,3 +836,134 @@ nativo de config do Vite vai exigir em breve.
 
 O pin exato do oxfmt (§6.2) continua valendo, e agora com um motivo a mais: ele é a única
 dependência beta que pode reescrever 61 exercícios sozinha.
+
+---
+
+## 16. Revisão pós-Fase 1
+
+Cinco ajustes depois de olhar o esqueleto funcionando. Os três primeiros mudam o que o
+repositório ensina; os dois últimos mudam como se mexe nele.
+
+### 16.1 A pergunta dos testes tem resposta medida
+
+"Mais testes?" era decidível, não uma questão de gosto. Medi: cobertura de linha no
+exercício de referência estava em **100%** com metade da suíte final, e os 22% de branch
+descobertos eram **exclusivamente** os quatro `?? 0` — código morto que existe porque o
+tipo não está estreitado. Ou seja: pela cobertura, a suíte estava pronta.
+
+E não estava. Faltavam cinco comportamentos que uma refatoração plausível quebra em
+silêncio e que a cobertura nunca acusaria, porque todos passam pelas mesmas linhas:
+
+- empate no tempo (estabilidade da ordenação);
+- ordem entre finishers e DNFs (o que quebra ao fundir os dois laços em um);
+- n = 1 na média (o que quebra ao trocar o acumulador por uma query);
+- nome mais largo que a coluna (transbordar ≠ truncar);
+- lista vazia (não há primeiro elemento para pegar).
+
+Daí a regra que entrou no `CONTRIBUTING.md`: **um teste por comportamento que uma
+refatoração plausível pode mudar em silêncio** — não um por linha, e nunca mirando um
+número. Cada teste nomeia, em comentário, o movimento contra o qual ele protege. A suíte
+foi de 4 para 9.
+
+A moral vale além do exercício: **cobertura diz que código rodou, nunca que promessa está
+presa.** Por isso o gate de cobertura do §5.1 continua valendo só para os katas sem rede
+pronta, onde a pergunta é outra — lá o risco é não ter teste nenhum, não ter poucos.
+
+### 16.2 `STEPS.md` encolheu; `WALKTHROUGH.md` nasceu
+
+O `STEPS.md` original tentava ser as duas coisas: a lista que você segue com as mãos e o
+texto que explica o porquê. Ficava longo demais para a primeira função e raso demais para a
+segunda.
+
+Agora são dois arquivos por variante, e a divisão é de **momento de uso**:
+
+- **`STEPS.md`** — a rota. Uma tabela de movimentos com a mensagem de commit de cada um.
+  Fica aberto num painel lateral enquanto você trabalha. ~50 linhas.
+- **`WALKTHROUGH.md`** — o comentário. O código antes/depois de cada passo, por que naquela
+  ordem, o que cada nome teve de merecer, o que o refactor custou e quais alternativas são
+  igualmente defensáveis. Lê-se **depois** de ter a própria versão. ~260 linhas.
+
+O walkthrough é onde cabe o que o `STEPS.md` não podia carregar: que a ordem importa mais
+que os movimentos; que os `?? 0` eram o sistema de tipos apontando a costura (e que isso
+**não está no livro**, cujos exemplos são em JavaScript); que o passo 10 é *Replace Temp
+with Query* do capítulo 7 aparecendo sozinho num drill do 6; e que `renderSummary` talvez
+devesse ser duas funções, e que não há resposta certa. Um walkthrough que apresenta toda
+decisão como óbvia mente para quem lê.
+
+`./rp diff <id> --walkthrough` imprime esse arquivo. `--steps` continua sendo o modo
+recomendado para a primeira olhada.
+
+### 16.3 Nomes viram matéria de primeira classe
+
+Fora do escopo do livro por escolha explícita, e registrada como tal. O livro trata nome
+como **movimento** (*Rename Variable*, *Change Function Declaration*, *Mysterious Name*),
+não como julgamento — ele ensina a renomear com segurança, não a distinguir um nome bom de
+um plausível.
+
+A lacuna importa aqui mais que na média, porque **Extract Function é um exercício de nomear
+fantasiado de exercício mecânico**. Recortar o bloco é a metade fácil; o que dá valor à
+extração é o bloco passar a ter nome, e um nome ruim deixa o leitor pior do que o comentário
+que ele substituiu.
+
+Três peças:
+
+- **`docs/NAMING.md`** — quatro perguntas em ordem (diz *o quê* ou *como*? poderia nomear
+  outra coisa neste arquivo? lê bem no ponto de chamada? é *verdade*?), mais as convenções
+  do repo, incluindo a distinção real entre `format*` (valor → string) e `render*` (domínio
+  → linhas).
+- **Seção "On the name"** em cada passo do walkthrough: qual pergunta decidiu e qual
+  candidato foi rejeitado.
+- **`./rp names <id>`** — passada advisory, sempre sai 0. Acusa vago (`data`, `temp`,
+  `processX`, `*Manager`); **não** consegue acusar falso. Está escrito na saída do próprio
+  comando: verde ali não é o mesmo que certo.
+
+A pergunta 4 — o nome é verdade? — é a que produz achado de verdade e a única que nenhuma
+ferramenta responde. É por isso que ela é um critério da revisão (§16.4) e não do lint.
+
+### 16.4 `docs/REVIEW.md` — revisão por IA sem gabarito
+
+O arquivo **é** o prompt. `./rp review <id>` imprime a rubrica com o material anexado:
+o enunciado, a suíte intocada, o código como está e o `git log --oneline` da rota.
+
+A decisão de projeto que sustenta o resto: **as soluções publicadas ficam de fora do
+pacote**, deliberadamente. Um revisor com gabarito na mão avalia semelhança em vez de
+qualidade — e como o §4.3 já assume que mais de uma decomposição está certa, entregar o
+gabarito destruiria a premissa. A rubrica diz isso na primeira seção, em voz alta: *"eu
+teria dividido diferente" não é um achado.*
+
+Cinco critérios, e o terceiro é o que quase todo revisor pula: **a rota, não só o destino**.
+O log de commits é a evidência de que houve passos pequenos com testes verdes no meio. Um
+único commit chamado "refactor" é uma reescrita fantasiada — pode até ter produzido código
+melhor, e não praticou o que se estava praticando. A rubrica manda comentar a *forma do log*
+antes de comentar o código.
+
+Também pede explicitamente o que costuma faltar: **o que piorou**. Lazy Element, parâmetro
+demais por costura errada, ping-pong entre seis funções, generalidade prematura. Nada disso
+é visível para nenhum check automático do repositório.
+
+Por exercício, `meta.json` carrega `reviewFocus` — o que pesar mais ali. Um arquivo de
+rubrica compartilhado, e não 61 quase-idênticos.
+
+### 16.5 Um comando só: `./rp`
+
+`npm run diff -- drill-06-01` tinha três problemas num comando só: o `run`, o `--`
+separador, e o id por extenso. E do outro lado havia sete scripts de topo com o mesmo
+boilerplate de parsing e busca repetido em cada um.
+
+Agora é um wrapper executável na raiz, um dispatcher e um arquivo por comando em
+`scripts/commands/`, com a busca e o parsing compartilhados:
+
+```
+./rp                  ./rp start 06-01     ./rp diff 06-01 --steps
+./rp review 06-01     ./rp names 06-01     ./rp check
+```
+
+Ids ficaram difusos: `06-01`, `drill-06-01`, `extract-function` e `"Extract Function"`
+resolvem para o mesmo exercício. Ninguém precisa decorar o esquema de id.
+
+`./rp check` roda os nove passos na ordem que falha mais rápido, e o CI virou um passo só —
+o mesmo comando que você roda antes de abrir o PR, o que remove a classe de bug em que o
+workflow e o `package.json` divergem.
+
+Os scripts npm que sobraram são os que fazem sentido serem nativos (`test`, `lint`,
+`format`) mais dois atalhos. De dez scripts, quatro.
