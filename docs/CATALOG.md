@@ -4,7 +4,7 @@
 
 Every refactoring in the second edition, and the exercise that drills it.
 
-**7/61 covered.**
+**11/61 covered.**
 
 | Refactoring                                   |   | Exercise                                                                                                              |
 | --------------------------------------------- | - | --------------------------------------------------------------------------------------------------------------------- |
@@ -12,13 +12,13 @@ Every refactoring in the second edition, and the exercise that drills it.
 | Inline Function                               | ✅ | [Inline Function](../exercises/drills/06-first-set/02-inline-function/README.en.md)                                   |
 | Extract Variable                              | ✅ | [Extract Variable](../exercises/drills/06-first-set/03-extract-variable/README.en.md)                                 |
 | Inline Variable                               | ✅ | [Inline Variable](../exercises/drills/06-first-set/04-inline-variable/README.en.md)                                   |
-| Change Function Declaration                   | ⬜ | —                                                                                                                     |
-| Encapsulate Variable                          | ⬜ | —                                                                                                                     |
+| Change Function Declaration                   | ✅ | [Change Function Declaration](../exercises/drills/06-first-set/05-change-function-declaration/README.en.md)           |
+| Encapsulate Variable                          | ✅ | [Encapsulate Variable](../exercises/drills/06-first-set/06-encapsulate-variable/README.en.md)                         |
 | Rename Variable                               | ✅ | [Rename Variable](../exercises/drills/06-first-set/07-rename-variable/README.en.md)                                   |
 | Introduce Parameter Object                    | ✅ | [Introduce Parameter Object](../exercises/drills/06-first-set/08-introduce-parameter-object/README.en.md)             |
-| Combine Functions into Class                  | ⬜ | —                                                                                                                     |
+| Combine Functions into Class                  | ✅ | [Combine Functions into Class](../exercises/drills/06-first-set/09-combine-functions-into-class/README.en.md)         |
 | Combine Functions into Transform              | ✅ | [Combine Functions into Transform](../exercises/drills/06-first-set/10-combine-functions-into-transform/README.en.md) |
-| Split Phase                                   | ⬜ | —                                                                                                                     |
+| Split Phase                                   | ✅ | [Split Phase](../exercises/drills/06-first-set/11-split-phase/README.en.md)                                           |
 | Encapsulate Record                            | ⬜ | —                                                                                                                     |
 | Encapsulate Collection                        | ⬜ | —                                                                                                                     |
 | Replace Primitive with Object                 | ⬜ | —                                                                                                                     |

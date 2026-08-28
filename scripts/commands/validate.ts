@@ -2,15 +2,25 @@
  * Structural validation of every exercise. This is the check that keeps the repository
  * honest as it grows past the point where anyone reviews it by eye.
  */
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import {
+  ROOT,
   catalogNames,
   discoverExercises,
   smellNames,
   type Exercise,
 } from "../lib/exercises.ts";
 export function validate(): number {
+  function markdownFiles(dir: string): string[] {
+    return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+      const full = path.join(dir, entry.name);
+      if (entry.name === "node_modules" || entry.name === ".git") return [];
+      if (entry.isDirectory()) return markdownFiles(full);
+      return entry.name.endsWith(".md") ? [full] : [];
+    });
+  }
+
   const errors: string[] = [];
   const warnings: string[] = [];
 
@@ -25,6 +35,23 @@ export function validate(): number {
 
   function warn(exercise: Exercise, message: string): void {
     warnings.push(`${exercise.relDir}: ${message}`);
+  }
+
+  /** True when two folders hold exactly the same .ts files with the same bytes. */
+  function identicalTrees(a: string, b: string): boolean {
+    const listing = (dir: string): string[] =>
+      existsSync(dir)
+        ? readdirSync(dir)
+            .filter((file) => file.endsWith(".ts"))
+            .sort()
+        : [];
+    const [left, right] = [listing(a), listing(b)];
+    if (left.length === 0 || left.join() !== right.join()) return false;
+    return left.every(
+      (file) =>
+        readFileSync(path.join(a, file), "utf8") ===
+        readFileSync(path.join(b, file), "utf8"),
+    );
   }
 
   function requireFile(exercise: Exercise, relative: string): void {
@@ -81,6 +108,20 @@ export function validate(): number {
       );
     }
     for (const slug of onDisk) {
+      // An exercise whose challenge already IS the solution passes every other check in
+      // this repository and teaches nothing. It is the failure mode of writing the clean
+      // version first and being interrupted before un-refactoring it.
+      if (
+        identicalTrees(
+          path.join(exercise.dir, "src"),
+          path.join(exercise.dir, "solutions", slug),
+        )
+      ) {
+        fail(
+          exercise,
+          `src/ is identical to solutions/${slug}/ - there is nothing to refactor`,
+        );
+      }
       requireFile(exercise, `solutions/${slug}/index.ts`);
       requireFile(exercise, `solutions/${slug}/STEPS.md`);
       requireFile(exercise, `solutions/${slug}/WALKTHROUGH.md`);
@@ -118,6 +159,20 @@ export function validate(): number {
     }
     for (const target of meta.coverageTargets ?? []) {
       requireFile(exercise, target);
+    }
+  }
+
+  // Cross-links are most of what holds this repository together, and a broken one is
+  // invisible until a reader clicks it. Checking them is nearly free.
+  const linkPattern = /\]\((\.[^)#\s]+\.md)\)/gu;
+  for (const file of markdownFiles(ROOT)) {
+    const body = readFileSync(file, "utf8");
+    const fenced = body.replace(/```[\s\S]*?```/gu, "");
+    for (const match of fenced.matchAll(linkPattern)) {
+      const target = path.resolve(path.dirname(file), match[1] ?? "");
+      if (!existsSync(target)) {
+        errors.push(`${path.relative(ROOT, file)}: broken link to ${match[1] ?? ""}`);
+      }
     }
   }
 

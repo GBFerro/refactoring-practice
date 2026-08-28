@@ -67,7 +67,7 @@ independently-written copies that could disagree.
 
 **On the name.** `hasHours` in `formatDuration` is the interesting rejection. I considered
 keeping it — `return hasHours ? ... : ...;` reads a little more like prose. But question 3
-from [`NAMING.md`](../../../../../docs/NAMING.md) is about the call site, and there is no
+from [`NAMING.md`](../../../../../../docs/NAMING.md) is about the call site, and there is no
 call site here — the only reader is the line directly below the declaration. A boolean
 built to be read once, immediately, by the same eyes that just wrote the comparison it
 names, is not paying for itself; `hours > 0` in the ternary is already just as readable.

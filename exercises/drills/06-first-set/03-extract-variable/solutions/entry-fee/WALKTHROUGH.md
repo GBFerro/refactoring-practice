@@ -36,7 +36,7 @@ race.baseFeeCents * memberFactor * ...
 The mechanical part is one line. The naming part is the whole exercise.
 
 **On the name.** Not `memberDiscount`. Question 4 from
-[`NAMING.md`](../../../../../docs/NAMING.md) — is it true? — kills that name immediately:
+[`NAMING.md`](../../../../../../docs/NAMING.md) — is it true? — kills that name immediately:
 when `entry.isMember` is `false`, the value is `1`, and `1` is not a discount, it is the
 absence of one. `memberFactor` is true in both branches, because a factor of `1` is still
 honestly a factor. This is the naming decision the other two discount extractions copy, so

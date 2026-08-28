@@ -24,19 +24,23 @@ npm install
 
 ## Exercises
 
-**Cobertura do catálogo: 7/61 refactorings.**
+**Cobertura do catálogo: 11/61 refactorings.**
 
 ### Chapter 6 — A First Set of Refactorings
 
 | Exercício                                                                                                            | Refactoring                      | Smells                                   | Nível | Min | Idioma |
 | -------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ---------------------------------------- | ----- | --- | ------ |
 | [Extract Function](./exercises/drills/06-first-set/01-extract-function/README.pt.md)                                 | Extract Function                 | Long Function, Comments, Duplicated Code | ●○○   | 25  | 🌐🇧🇷 |
-| [Inline Function](./exercises/drills/06-first-set/02-inline-function/README.pt.md)                                   | Inline Function                  | Lazy Element                             | ●○○   | 20  | 🌐     |
-| [Extract Variable](./exercises/drills/06-first-set/03-extract-variable/README.pt.md)                                 | Extract Variable                 | Mysterious Name                          | ●○○   | 15  | 🌐     |
-| [Inline Variable](./exercises/drills/06-first-set/04-inline-variable/README.pt.md)                                   | Inline Variable                  | Lazy Element                             | ●○○   | 15  | 🌐     |
-| [Rename Variable](./exercises/drills/06-first-set/07-rename-variable/README.pt.md)                                   | Rename Variable                  | Mysterious Name                          | ●○○   | 20  | 🌐     |
-| [Introduce Parameter Object](./exercises/drills/06-first-set/08-introduce-parameter-object/README.pt.md)             | Introduce Parameter Object       | Data Clumps, Long Parameter List         | ●○○   | 25  | 🌐     |
-| [Combine Functions into Transform](./exercises/drills/06-first-set/10-combine-functions-into-transform/README.pt.md) | Combine Functions into Transform | Duplicated Code                          | ●○○   | 30  | 🌐     |
+| [Inline Function](./exercises/drills/06-first-set/02-inline-function/README.en.md)                                   | Inline Function                  | Lazy Element                             | ●○○   | 20  | 🌐     |
+| [Extract Variable](./exercises/drills/06-first-set/03-extract-variable/README.en.md)                                 | Extract Variable                 | Mysterious Name                          | ●○○   | 15  | 🌐     |
+| [Inline Variable](./exercises/drills/06-first-set/04-inline-variable/README.en.md)                                   | Inline Variable                  | Lazy Element                             | ●○○   | 15  | 🌐     |
+| [Change Function Declaration](./exercises/drills/06-first-set/05-change-function-declaration/README.en.md)           | Change Function Declaration      | Mysterious Name                          | ●○○   | 20  | 🌐     |
+| [Encapsulate Variable](./exercises/drills/06-first-set/06-encapsulate-variable/README.en.md)                         | Encapsulate Variable             | Global Data, Mutable Data                | ●○○   | 30  | 🌐     |
+| [Rename Variable](./exercises/drills/06-first-set/07-rename-variable/README.en.md)                                   | Rename Variable                  | Mysterious Name                          | ●○○   | 20  | 🌐     |
+| [Introduce Parameter Object](./exercises/drills/06-first-set/08-introduce-parameter-object/README.en.md)             | Introduce Parameter Object       | Data Clumps, Long Parameter List         | ●○○   | 25  | 🌐     |
+| [Combine Functions into Class](./exercises/drills/06-first-set/09-combine-functions-into-class/README.en.md)         | Combine Functions into Class     | Data Clumps                              | ●●○   | 30  | 🌐     |
+| [Combine Functions into Transform](./exercises/drills/06-first-set/10-combine-functions-into-transform/README.en.md) | Combine Functions into Transform | Duplicated Code                          | ●○○   | 30  | 🌐     |
+| [Split Phase](./exercises/drills/06-first-set/11-split-phase/README.en.md)                                           | Split Phase                      | Long Function                            | ●●○   | 35  | 🌐     |
 
 ### Chapter 7 — Encapsulation
 

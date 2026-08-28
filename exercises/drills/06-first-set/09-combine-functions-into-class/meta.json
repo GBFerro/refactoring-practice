@@ -1,0 +1,28 @@
+{
+  "id": "drill-06-09",
+  "title": "Combine Functions into Class",
+  "type": "drill",
+  "chapter": 6,
+  "refactorings": ["Combine Functions into Class"],
+  "smells": ["Data Clumps"],
+  "difficulty": 2,
+  "estimatedMinutes": 30,
+  "prerequisites": ["drill-06-08"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "training-block",
+      "title": "One TrainingBlock the sheet asks questions of",
+      "tradeoff": "A class and a `new` where there were only functions, and a boundary that has to be defended: the renderer will want to move in, and it must not."
+    }
+  ],
+  "reviewFocus": [
+    "Did every derived value move onto the class, or only the ones that were awkward to pass? A half-moved clump is worse than none.",
+    "Is the renderer still a function outside the class? If it moved in, what stopped the class from becoming the whole module?",
+    "Which methods are getters and which take a `week`? The split should follow what the value depends on, not what felt natural to type.",
+    "Does the class store the two records, or did it copy their fields onto itself? Copying is a second decision and needs a reason.",
+    "Is the rounding still in exactly one place, so that the printed total is the sum of the printed weeks?"
+  ]
+}

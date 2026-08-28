@@ -19,12 +19,18 @@ export function translationFlags(exercise: Exercise): string {
   return [has.has("en") ? "🌐" : "", has.has("pt") ? "🇧🇷" : ""].join("").trim() || "—";
 }
 
+/**
+ * Links to the brief in the requested language, falling back to English when that
+ * exercise has not been translated. pt-BR is optional (docs/DESIGN.md §3.1), so the
+ * Portuguese index would otherwise be full of links to files that do not exist.
+ */
 export function exerciseLink(
   exercise: Exercise,
   lang: "en" | "pt",
   prefix = "./",
 ): string {
-  return `[${exercise.meta.title}](${prefix}${exercise.relDir}/README.${lang}.md)`;
+  const available = exercise.meta.translations.includes(lang) ? lang : "en";
+  return `[${exercise.meta.title}](${prefix}${exercise.relDir}/README.${available}.md)`;
 }
 
 /** A markdown table, padded so the raw file is readable too. */

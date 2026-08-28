@@ -1,0 +1,28 @@
+{
+  "id": "drill-06-05",
+  "title": "Change Function Declaration",
+  "type": "drill",
+  "chapter": 6,
+  "refactorings": ["Change Function Declaration"],
+  "smells": ["Mysterious Name"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": ["drill-06-01"],
+  "apiFrozen": false,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "change-function-declaration",
+      "title": "Rename to say what it does, then drop the parameter the catalogue already carries",
+      "tradeoff": "The lookup can only ever report on the season of the catalogue it was handed - a caller that wanted to ask about a different season now needs a different catalogue. That is honest, and it is a door this closes."
+    }
+  ],
+  "reviewFocus": [
+    "Is the new name true for a function that throws? `findCourse` promises `undefined` on a miss and would be a fresh lie.",
+    "Was the `season` parameter removed only after confirming every call site already passed `catalogue.season`? Nothing else makes that step safe.",
+    "Were the callers migrated one at a time with a green suite between them, or fixed in a single edit across the file?",
+    "Does the thrown message still read exactly as before, including which catalogue's season it names? That string is the only observable proof the change preserved behaviour.",
+    "Did the signature change stop at the target function, or did it leak into the exported callers - whose signatures the tests freeze?"
+  ]
+}

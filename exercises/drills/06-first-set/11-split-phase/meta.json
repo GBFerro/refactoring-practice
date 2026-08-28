@@ -1,0 +1,28 @@
+{
+  "id": "drill-06-11",
+  "title": "Split Phase",
+  "type": "drill",
+  "chapter": 6,
+  "refactorings": ["Split Phase"],
+  "smells": ["Long Function"],
+  "difficulty": 2,
+  "estimatedMinutes": 35,
+  "prerequisites": ["drill-06-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "split-phase",
+      "title": "Parse the line, then price the entry",
+      "tradeoff": "An intermediate structure you now have to name, maintain and keep honest - a data type that exists for no reason other than that two phases have to meet somewhere."
+    }
+  ],
+  "reviewFocus": [
+    "Does the intermediate structure carry text or facts? A `membership: string` field means the seam was cut one word too early.",
+    "Which phase owns the unknown race code? Looking a price up is pricing; the parser has no price list and must not grow one.",
+    "Does the parser import anything about money, or the pricer anything about `|` or string splitting? Either import is the split failing.",
+    "Is the discount still capped by the subtotal, and the member percentage still applied to the base alone? Those two are the easiest things to reorder while moving code between phases.",
+    "How long is the composed entry point? If it is more than the two calls, some third thing is hiding between the phases."
+  ]
+}

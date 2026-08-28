@@ -98,7 +98,7 @@ more than the comparison itself does — the comparison *is* the requirement.
 
 **On the name.** I considered keeping `meetsAgeRequirement` for symmetry with the three
 survivors below. I rejected it on question 1 from
-[`NAMING.md`](../../../../../docs/NAMING.md): does the name say *what*, or does it just
+[`NAMING.md`](../../../../../../docs/NAMING.md): does the name say *what*, or does it just
 restate *how*? `meetsAgeRequirement` restates the comparison one level up; it does not
 explain a threshold, a policy, or an edge case the way the three survivors do. A name that
 adds nothing beyond "this is a comparison" is not worth the extra frame.

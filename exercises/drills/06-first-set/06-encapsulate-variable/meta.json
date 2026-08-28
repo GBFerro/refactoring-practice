@@ -1,0 +1,28 @@
+{
+  "id": "drill-06-06",
+  "title": "Encapsulate Variable",
+  "type": "drill",
+  "chapter": 6,
+  "refactorings": ["Encapsulate Variable"],
+  "smells": ["Global Data", "Mutable Data"],
+  "difficulty": 1,
+  "estimatedMinutes": 30,
+  "prerequisites": ["drill-06-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "encapsulate-variable",
+      "title": "Named functions, not a shared object",
+      "tradeoff": "Eight small functions where there were five raw fields, and a fifth caller could no longer add itself without one. Every future setting needs its own accessor written by hand - a general get/set pair would have been cheaper to extend and is exactly what this solution gives up."
+    }
+  ],
+  "reviewFocus": [
+    "Is `settings` still reachable from outside `club-settings.ts` - by import, not just by convention? Encapsulate Variable is not finished while any sibling file can still write a field directly.",
+    "Does `club-settings.ts` export a general `getClubSettings()` / `setClubSettings()` pair, or specific functions like `spotsRemaining()` and `admitOneMember()`? Either is a legitimate reading of the move - what does each cost the next field that gets added?",
+    "If a getter still hands back the live `settings` object, would a caller assigning into the result compile? A `readonly` field stops that at the type level; check whether that is being relied on, or whether nothing actually stops it.",
+    "`decideEntry` reads `spotsRemaining()` and then, on the same call, changes it. Encapsulating the variable did not remove that coupling - it only gave it a name. Is that still in scope for this refactoring, or is it the next one?",
+    "`startSeason` resets `memberCount` as a side effect of configuring dues and capacity. Is that one function doing two jobs, or one seasonal reset that happens to touch five fields at once?"
+  ]
+}

@@ -56,7 +56,7 @@ already told you.
 ## Step 1 — `xs` → `segments`
 
 **On the name.** Question 4 from
-[`NAMING.md`](../../../../../docs/NAMING.md) rules out the tempting alternative,
+[`NAMING.md`](../../../../../../docs/NAMING.md) rules out the tempting alternative,
 `paces`. It's tempting because every use of an element inside this function reaches
 straight for `.paceSecondsPerKm` — but the parameter holds full `Segment` objects, each
 carrying a `markerKm` too, and elsewhere in this same file (`segmentsOf`) that field

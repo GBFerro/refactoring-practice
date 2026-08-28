@@ -61,7 +61,7 @@ it is safe and immediate — it takes `results`, returns `results`, and every ca
 already doing precisely this.
 
 **On the name.** I called it `qualifyingResults`, not `eligibleResults`. Question 4 from
-[`NAMING.md`](../../../../../docs/NAMING.md) — is it true? — is the reason. "Eligible" is
+[`NAMING.md`](../../../../../../docs/NAMING.md) — is it true? — is the reason. "Eligible" is
 already a word this module uses for something else: `isSelectableOf` decides whether a
 runner is *eligible for selection*, which depends on tenure as well as on qualifying
 results. A runner can have two qualifying results and still not be selection-eligible

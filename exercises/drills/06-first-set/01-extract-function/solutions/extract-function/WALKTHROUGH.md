@@ -54,7 +54,7 @@ The smallest possible thing, and it appears four times.
 **On the name.** `pad2` is not a great name and I kept it deliberately. `padToTwoDigits`
 says the same thing in three times the characters, and at a call site
 (`` `${pad2(minutes)}:${pad2(rest)}` ``) the shorter one reads better. This is question 3
-from [`NAMING.md`](../../../../../docs/NAMING.md): check the call site, not the
+from [`NAMING.md`](../../../../../../docs/NAMING.md): check the call site, not the
 declaration. A name that reads well where it is *used* beats one that documents itself
 where it is defined.
 

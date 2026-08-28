@@ -66,7 +66,7 @@ into designing the interface before you have seen what needs it.
 in this domain (a season has periods too, eventually) and would collide; `Window` reads
 fine in prose but not at a call site — `new Window(from, to)` sounds like a UI concern.
 `DateRange` says what it is without describing how it is stored (question 1 from
-[`NAMING.md`](../../../../../docs/NAMING.md)), and it will not go stale if the internal
+[`NAMING.md`](../../../../../../docs/NAMING.md)), and it will not go stale if the internal
 representation ever stops being two ISO strings.
 
 ## Step 2 — threading it through the pipeline
