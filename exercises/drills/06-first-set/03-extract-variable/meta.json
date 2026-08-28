@@ -1,0 +1,28 @@
+{
+  "id": "drill-06-03",
+  "title": "Extract Variable",
+  "type": "drill",
+  "chapter": 6,
+  "refactorings": ["Extract Variable"],
+  "smells": ["Mysterious Name"],
+  "difficulty": 1,
+  "estimatedMinutes": 15,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "entry-fee",
+      "title": "Five named factors, one function",
+      "tradeoff": "Five extra lines the function did not have before, and five names to get right - all cost, no new capability, since the arithmetic itself does not change."
+    }
+  ],
+  "reviewFocus": [
+    "Read only the final `return` line - can you tell what it computes without scrolling up to the const declarations? That is the test the original code failed.",
+    "Does `affiliationFeeCents` still sit outside the discount chain, or did an extraction accidentally pull it inside the multiplication?",
+    "Is `discountedBase` really one idea, or is it hiding a second Extract Variable - the multiplication chain - that never got split further? Either answer is defensible; the walkthrough should say why.",
+    "Did any extraction change evaluation order in a way that could matter if `race.baseFeeCents` were ever a getter with a side effect? It is not here, but the question is worth asking of every Extract Variable.",
+    "Would you have named `nonHostSurcharge` around the surcharge or around the discount it is not - i.e. is the true/false direction of the ternary the one a reader expects?"
+  ]
+}

@@ -4,29 +4,29 @@
 
 Arrived with a real problem instead of an open chapter? Start here.
 
-| Smell (chapter 3)                             | Exercises                                                                             |
-| --------------------------------------------- | ------------------------------------------------------------------------------------- |
-| Mysterious Name                               | —                                                                                     |
-| Duplicated Code                               | [Extract Function](../exercises/drills/06-first-set/01-extract-function/README.en.md) |
-| Long Function                                 | [Extract Function](../exercises/drills/06-first-set/01-extract-function/README.en.md) |
-| Long Parameter List                           | —                                                                                     |
-| Global Data                                   | —                                                                                     |
-| Mutable Data                                  | —                                                                                     |
-| Divergent Change                              | —                                                                                     |
-| Shotgun Surgery                               | —                                                                                     |
-| Feature Envy                                  | —                                                                                     |
-| Data Clumps                                   | —                                                                                     |
-| Primitive Obsession                           | —                                                                                     |
-| Repeated Switches                             | —                                                                                     |
-| Loops                                         | —                                                                                     |
-| Lazy Element                                  | —                                                                                     |
-| Speculative Generality                        | —                                                                                     |
-| Temporary Field                               | —                                                                                     |
-| Message Chains                                | —                                                                                     |
-| Middle Man                                    | —                                                                                     |
-| Insider Trading                               | —                                                                                     |
-| Large Class                                   | —                                                                                     |
-| Alternative Classes with Different Interfaces | —                                                                                     |
-| Data Class                                    | —                                                                                     |
-| Refused Bequest                               | —                                                                                     |
-| Comments                                      | [Extract Function](../exercises/drills/06-first-set/01-extract-function/README.en.md) |
+| Smell (chapter 3)                             | Exercises                                                                                                                                                                                                    |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Mysterious Name                               | [Extract Variable](../exercises/drills/06-first-set/03-extract-variable/README.en.md), [Rename Variable](../exercises/drills/06-first-set/07-rename-variable/README.en.md)                                   |
+| Duplicated Code                               | [Extract Function](../exercises/drills/06-first-set/01-extract-function/README.en.md), [Combine Functions into Transform](../exercises/drills/06-first-set/10-combine-functions-into-transform/README.en.md) |
+| Long Function                                 | [Extract Function](../exercises/drills/06-first-set/01-extract-function/README.en.md)                                                                                                                        |
+| Long Parameter List                           | [Introduce Parameter Object](../exercises/drills/06-first-set/08-introduce-parameter-object/README.en.md)                                                                                                    |
+| Global Data                                   | —                                                                                                                                                                                                            |
+| Mutable Data                                  | —                                                                                                                                                                                                            |
+| Divergent Change                              | —                                                                                                                                                                                                            |
+| Shotgun Surgery                               | —                                                                                                                                                                                                            |
+| Feature Envy                                  | —                                                                                                                                                                                                            |
+| Data Clumps                                   | [Introduce Parameter Object](../exercises/drills/06-first-set/08-introduce-parameter-object/README.en.md)                                                                                                    |
+| Primitive Obsession                           | —                                                                                                                                                                                                            |
+| Repeated Switches                             | —                                                                                                                                                                                                            |
+| Loops                                         | —                                                                                                                                                                                                            |
+| Lazy Element                                  | [Inline Function](../exercises/drills/06-first-set/02-inline-function/README.en.md), [Inline Variable](../exercises/drills/06-first-set/04-inline-variable/README.en.md)                                     |
+| Speculative Generality                        | —                                                                                                                                                                                                            |
+| Temporary Field                               | —                                                                                                                                                                                                            |
+| Message Chains                                | —                                                                                                                                                                                                            |
+| Middle Man                                    | —                                                                                                                                                                                                            |
+| Insider Trading                               | —                                                                                                                                                                                                            |
+| Large Class                                   | —                                                                                                                                                                                                            |
+| Alternative Classes with Different Interfaces | —                                                                                                                                                                                                            |
+| Data Class                                    | —                                                                                                                                                                                                            |
+| Refused Bequest                               | —                                                                                                                                                                                                            |
+| Comments                                      | [Extract Function](../exercises/drills/06-first-set/01-extract-function/README.en.md)                                                                                                                        |

@@ -1,0 +1,28 @@
+{
+  "id": "drill-06-08",
+  "title": "Introduce Parameter Object",
+  "type": "drill",
+  "chapter": 6,
+  "refactorings": ["Introduce Parameter Object"],
+  "smells": ["Data Clumps", "Long Parameter List"],
+  "difficulty": 1,
+  "estimatedMinutes": 25,
+  "prerequisites": ["drill-06-01"],
+  "apiFrozen": false,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "date-range",
+      "title": "A DateRange the report can ask questions of",
+      "tradeoff": "A type to construct at every entry point, and a standing invitation to keep adding getters to it. Worth it only because the two dates already had behaviour waiting for them."
+    }
+  ],
+  "reviewFocus": [
+    "Did the two dates travel together in every signature, or is there one place where only `from` was needed? A parameter object over values that do not always travel together is ceremony.",
+    "How many methods did the new type attract? Zero means you introduced a record, not an object - the smell is still there wearing a nicer coat.",
+    "Is `renderRangeLine` inside the type or outside it? Both are defensible; the answer should be an argument, not an accident.",
+    "Were the three entry points migrated one at a time, with the suite green in between, or did the signature change land in one commit?",
+    "Does any caller still compute a `to` date by hand? The month report is the one that hides."
+  ]
+}

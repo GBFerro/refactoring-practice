@@ -1,0 +1,28 @@
+{
+  "id": "drill-06-04",
+  "title": "Inline Variable",
+  "type": "drill",
+  "chapter": 6,
+  "refactorings": ["Inline Variable"],
+  "smells": ["Lazy Element"],
+  "difficulty": 1,
+  "estimatedMinutes": 15,
+  "prerequisites": ["drill-06-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "inline-variable",
+      "title": "Only the variables that earn their line",
+      "tradeoff": "Some expressions get longer, and three variables survive for reasons that have nothing to do with their names - which means the rule you leave with is a judgement, not a lint rule."
+    }
+  ],
+  "reviewFocus": [
+    "Every variable that survived: can you say in one sentence what it earns? Three should survive, for three different reasons.",
+    "Did any inline duplicate an expression? Inline Variable that buys Duplicated Code is a bad trade, and it is the easiest mistake to make here.",
+    "Is `average` still computed outside the callback? Inlining it is textually one substitution and turns one division into n.",
+    "Is the first segment still measured from the start line and not from the previous mat? `previous` is `undefined` there, and the `?? 0` is load-bearing.",
+    "Count the lines removed. If the file did not get shorter, the variables you removed were not the aliasing ones."
+  ]
+}

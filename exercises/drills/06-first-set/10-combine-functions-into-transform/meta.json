@@ -1,0 +1,28 @@
+{
+  "id": "drill-06-10",
+  "title": "Combine Functions into Transform",
+  "type": "drill",
+  "chapter": 6,
+  "refactorings": ["Combine Functions into Transform"],
+  "smells": ["Duplicated Code"],
+  "difficulty": 1,
+  "estimatedMinutes": 30,
+  "prerequisites": ["drill-06-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "combine-functions-into-transform",
+      "title": "One transform, one enriched record",
+      "tradeoff": "The profile is a copy, so it is a snapshot: enrich early and mutate the record later and the derived fields silently lie. A class would keep them live at the price of making the data a thing with behaviour."
+    }
+  ],
+  "reviewFocus": [
+    "Is each raw fact derived exactly once per transform call, or does the transform still ask for the qualifying results twice?",
+    "Did the four derivation functions disappear, or do they survive as one-line delegates to the transform? Delegates are a legitimate intermediate step and a bad resting place.",
+    "Does the enriched type say it is an enrichment - `extends RunnerRecord` - or does it copy the raw fields by hand and invite them to drift?",
+    "Is the copy shallow, and if so, what guarantees the shared `results` array is not mutated behind the profile's back?",
+    "Could this have been Combine Functions into Class instead? Ask what would have to be true about the record's lifetime for that to be the better call."
+  ]
+}

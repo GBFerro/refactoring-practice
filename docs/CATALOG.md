@@ -4,68 +4,68 @@
 
 Every refactoring in the second edition, and the exercise that drills it.
 
-**1/61 covered.**
+**7/61 covered.**
 
-| Refactoring                                   |   | Exercise                                                                              |
-| --------------------------------------------- | - | ------------------------------------------------------------------------------------- |
-| Extract Function                              | ✅ | [Extract Function](../exercises/drills/06-first-set/01-extract-function/README.en.md) |
-| Inline Function                               | ⬜ | —                                                                                     |
-| Extract Variable                              | ⬜ | —                                                                                     |
-| Inline Variable                               | ⬜ | —                                                                                     |
-| Change Function Declaration                   | ⬜ | —                                                                                     |
-| Encapsulate Variable                          | ⬜ | —                                                                                     |
-| Rename Variable                               | ⬜ | —                                                                                     |
-| Introduce Parameter Object                    | ⬜ | —                                                                                     |
-| Combine Functions into Class                  | ⬜ | —                                                                                     |
-| Combine Functions into Transform              | ⬜ | —                                                                                     |
-| Split Phase                                   | ⬜ | —                                                                                     |
-| Encapsulate Record                            | ⬜ | —                                                                                     |
-| Encapsulate Collection                        | ⬜ | —                                                                                     |
-| Replace Primitive with Object                 | ⬜ | —                                                                                     |
-| Replace Temp with Query                       | ⬜ | —                                                                                     |
-| Extract Class                                 | ⬜ | —                                                                                     |
-| Inline Class                                  | ⬜ | —                                                                                     |
-| Hide Delegate                                 | ⬜ | —                                                                                     |
-| Remove Middle Man                             | ⬜ | —                                                                                     |
-| Substitute Algorithm                          | ⬜ | —                                                                                     |
-| Move Function                                 | ⬜ | —                                                                                     |
-| Move Field                                    | ⬜ | —                                                                                     |
-| Move Statements into Function                 | ⬜ | —                                                                                     |
-| Move Statements to Callers                    | ⬜ | —                                                                                     |
-| Replace Inline Code with Function Call        | ⬜ | —                                                                                     |
-| Slide Statements                              | ⬜ | —                                                                                     |
-| Split Loop                                    | ⬜ | —                                                                                     |
-| Replace Loop with Pipeline                    | ⬜ | —                                                                                     |
-| Remove Dead Code                              | ⬜ | —                                                                                     |
-| Split Variable                                | ⬜ | —                                                                                     |
-| Rename Field                                  | ⬜ | —                                                                                     |
-| Replace Derived Variable with Query           | ⬜ | —                                                                                     |
-| Change Reference to Value                     | ⬜ | —                                                                                     |
-| Change Value to Reference                     | ⬜ | —                                                                                     |
-| Decompose Conditional                         | ⬜ | —                                                                                     |
-| Consolidate Conditional Expression            | ⬜ | —                                                                                     |
-| Replace Nested Conditional with Guard Clauses | ⬜ | —                                                                                     |
-| Replace Conditional with Polymorphism         | ⬜ | —                                                                                     |
-| Introduce Special Case                        | ⬜ | —                                                                                     |
-| Introduce Assertion                           | ⬜ | —                                                                                     |
-| Separate Query from Modifier                  | ⬜ | —                                                                                     |
-| Parameterize Function                         | ⬜ | —                                                                                     |
-| Remove Flag Argument                          | ⬜ | —                                                                                     |
-| Preserve Whole Object                         | ⬜ | —                                                                                     |
-| Replace Parameter with Query                  | ⬜ | —                                                                                     |
-| Replace Query with Parameter                  | ⬜ | —                                                                                     |
-| Remove Setting Method                         | ⬜ | —                                                                                     |
-| Replace Constructor with Factory Function     | ⬜ | —                                                                                     |
-| Replace Function with Command                 | ⬜ | —                                                                                     |
-| Replace Command with Function                 | ⬜ | —                                                                                     |
-| Pull Up Method                                | ⬜ | —                                                                                     |
-| Pull Up Field                                 | ⬜ | —                                                                                     |
-| Pull Up Constructor Body                      | ⬜ | —                                                                                     |
-| Push Down Method                              | ⬜ | —                                                                                     |
-| Push Down Field                               | ⬜ | —                                                                                     |
-| Replace Type Code with Subclasses             | ⬜ | —                                                                                     |
-| Remove Subclass                               | ⬜ | —                                                                                     |
-| Extract Superclass                            | ⬜ | —                                                                                     |
-| Collapse Hierarchy                            | ⬜ | —                                                                                     |
-| Replace Subclass with Delegate                | ⬜ | —                                                                                     |
-| Replace Superclass with Delegate              | ⬜ | —                                                                                     |
+| Refactoring                                   |   | Exercise                                                                                                              |
+| --------------------------------------------- | - | --------------------------------------------------------------------------------------------------------------------- |
+| Extract Function                              | ✅ | [Extract Function](../exercises/drills/06-first-set/01-extract-function/README.en.md)                                 |
+| Inline Function                               | ✅ | [Inline Function](../exercises/drills/06-first-set/02-inline-function/README.en.md)                                   |
+| Extract Variable                              | ✅ | [Extract Variable](../exercises/drills/06-first-set/03-extract-variable/README.en.md)                                 |
+| Inline Variable                               | ✅ | [Inline Variable](../exercises/drills/06-first-set/04-inline-variable/README.en.md)                                   |
+| Change Function Declaration                   | ⬜ | —                                                                                                                     |
+| Encapsulate Variable                          | ⬜ | —                                                                                                                     |
+| Rename Variable                               | ✅ | [Rename Variable](../exercises/drills/06-first-set/07-rename-variable/README.en.md)                                   |
+| Introduce Parameter Object                    | ✅ | [Introduce Parameter Object](../exercises/drills/06-first-set/08-introduce-parameter-object/README.en.md)             |
+| Combine Functions into Class                  | ⬜ | —                                                                                                                     |
+| Combine Functions into Transform              | ✅ | [Combine Functions into Transform](../exercises/drills/06-first-set/10-combine-functions-into-transform/README.en.md) |
+| Split Phase                                   | ⬜ | —                                                                                                                     |
+| Encapsulate Record                            | ⬜ | —                                                                                                                     |
+| Encapsulate Collection                        | ⬜ | —                                                                                                                     |
+| Replace Primitive with Object                 | ⬜ | —                                                                                                                     |
+| Replace Temp with Query                       | ⬜ | —                                                                                                                     |
+| Extract Class                                 | ⬜ | —                                                                                                                     |
+| Inline Class                                  | ⬜ | —                                                                                                                     |
+| Hide Delegate                                 | ⬜ | —                                                                                                                     |
+| Remove Middle Man                             | ⬜ | —                                                                                                                     |
+| Substitute Algorithm                          | ⬜ | —                                                                                                                     |
+| Move Function                                 | ⬜ | —                                                                                                                     |
+| Move Field                                    | ⬜ | —                                                                                                                     |
+| Move Statements into Function                 | ⬜ | —                                                                                                                     |
+| Move Statements to Callers                    | ⬜ | —                                                                                                                     |
+| Replace Inline Code with Function Call        | ⬜ | —                                                                                                                     |
+| Slide Statements                              | ⬜ | —                                                                                                                     |
+| Split Loop                                    | ⬜ | —                                                                                                                     |
+| Replace Loop with Pipeline                    | ⬜ | —                                                                                                                     |
+| Remove Dead Code                              | ⬜ | —                                                                                                                     |
+| Split Variable                                | ⬜ | —                                                                                                                     |
+| Rename Field                                  | ⬜ | —                                                                                                                     |
+| Replace Derived Variable with Query           | ⬜ | —                                                                                                                     |
+| Change Reference to Value                     | ⬜ | —                                                                                                                     |
+| Change Value to Reference                     | ⬜ | —                                                                                                                     |
+| Decompose Conditional                         | ⬜ | —                                                                                                                     |
+| Consolidate Conditional Expression            | ⬜ | —                                                                                                                     |
+| Replace Nested Conditional with Guard Clauses | ⬜ | —                                                                                                                     |
+| Replace Conditional with Polymorphism         | ⬜ | —                                                                                                                     |
+| Introduce Special Case                        | ⬜ | —                                                                                                                     |
+| Introduce Assertion                           | ⬜ | —                                                                                                                     |
+| Separate Query from Modifier                  | ⬜ | —                                                                                                                     |
+| Parameterize Function                         | ⬜ | —                                                                                                                     |
+| Remove Flag Argument                          | ⬜ | —                                                                                                                     |
+| Preserve Whole Object                         | ⬜ | —                                                                                                                     |
+| Replace Parameter with Query                  | ⬜ | —                                                                                                                     |
+| Replace Query with Parameter                  | ⬜ | —                                                                                                                     |
+| Remove Setting Method                         | ⬜ | —                                                                                                                     |
+| Replace Constructor with Factory Function     | ⬜ | —                                                                                                                     |
+| Replace Function with Command                 | ⬜ | —                                                                                                                     |
+| Replace Command with Function                 | ⬜ | —                                                                                                                     |
+| Pull Up Method                                | ⬜ | —                                                                                                                     |
+| Pull Up Field                                 | ⬜ | —                                                                                                                     |
+| Pull Up Constructor Body                      | ⬜ | —                                                                                                                     |
+| Push Down Method                              | ⬜ | —                                                                                                                     |
+| Push Down Field                               | ⬜ | —                                                                                                                     |
+| Replace Type Code with Subclasses             | ⬜ | —                                                                                                                     |
+| Remove Subclass                               | ⬜ | —                                                                                                                     |
+| Extract Superclass                            | ⬜ | —                                                                                                                     |
+| Collapse Hierarchy                            | ⬜ | —                                                                                                                     |
+| Replace Subclass with Delegate                | ⬜ | —                                                                                                                     |
+| Replace Superclass with Delegate              | ⬜ | —                                                                                                                     |

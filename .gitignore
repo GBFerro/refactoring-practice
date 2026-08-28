@@ -4,3 +4,9 @@ dist/
 *.tsbuildinfo
 .DS_Store
 review-*.md
+
+# vitest caches created inside exercise folders (project root = exercise dir)
+exercises/**/node_modules/
+
+# exercises interrupted mid-write; resume with the agent brief
+.wip/

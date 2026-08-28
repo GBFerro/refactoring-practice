@@ -1,0 +1,28 @@
+{
+  "id": "drill-06-02",
+  "title": "Inline Function",
+  "type": "drill",
+  "chapter": 6,
+  "refactorings": ["Inline Function"],
+  "smells": ["Lazy Element"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": ["drill-06-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "inline-function",
+      "title": "Three rules, not seventeen functions",
+      "tradeoff": "The policy now lives as a five-line boolean chain plus three named rules; a reader who wants to unit-test the suspension or age check in isolation can no longer do so without exporting a function that exists only to be inlined again."
+    }
+  ],
+  "reviewFocus": [
+    "Did every purely single-field alias - isSuspended, getRunnerAge, getQualifyingSeconds and the rest - actually disappear, or did one survive out of habit?",
+    "Is meetsQualifyingTime still the only helper with a branch in it? If a second helper grew an if, ask whether it should have stayed inlined instead.",
+    "Does hasRequiredConsent still read runner.age >= 18, not 18 >= runner.age or some other transposition that would silently flip who needs consent?",
+    "Count the functions left in src/. Four is the defensible number; ten is a sign half the inlining did not happen.",
+    "Is the double negative in meetsLicenseRequirement (!course.requiresLicense || runner.hasClubLicense) still expressed as an implication, or did the solution try to simplify it into a form that reads correctly but tests the wrong thing?"
+  ]
+}

@@ -24,13 +24,19 @@ npm install
 
 ## Exercises
 
-**Cobertura do catálogo: 1/61 refactorings.**
+**Cobertura do catálogo: 7/61 refactorings.**
 
 ### Chapter 6 — A First Set of Refactorings
 
-| Exercício                                                                            | Refactoring      | Smells                                   | Nível | Min | Idioma |
-| ------------------------------------------------------------------------------------ | ---------------- | ---------------------------------------- | ----- | --- | ------ |
-| [Extract Function](./exercises/drills/06-first-set/01-extract-function/README.pt.md) | Extract Function | Long Function, Comments, Duplicated Code | ●○○   | 25  | 🌐🇧🇷 |
+| Exercício                                                                                                            | Refactoring                      | Smells                                   | Nível | Min | Idioma |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ---------------------------------------- | ----- | --- | ------ |
+| [Extract Function](./exercises/drills/06-first-set/01-extract-function/README.pt.md)                                 | Extract Function                 | Long Function, Comments, Duplicated Code | ●○○   | 25  | 🌐🇧🇷 |
+| [Inline Function](./exercises/drills/06-first-set/02-inline-function/README.pt.md)                                   | Inline Function                  | Lazy Element                             | ●○○   | 20  | 🌐     |
+| [Extract Variable](./exercises/drills/06-first-set/03-extract-variable/README.pt.md)                                 | Extract Variable                 | Mysterious Name                          | ●○○   | 15  | 🌐     |
+| [Inline Variable](./exercises/drills/06-first-set/04-inline-variable/README.pt.md)                                   | Inline Variable                  | Lazy Element                             | ●○○   | 15  | 🌐     |
+| [Rename Variable](./exercises/drills/06-first-set/07-rename-variable/README.pt.md)                                   | Rename Variable                  | Mysterious Name                          | ●○○   | 20  | 🌐     |
+| [Introduce Parameter Object](./exercises/drills/06-first-set/08-introduce-parameter-object/README.pt.md)             | Introduce Parameter Object       | Data Clumps, Long Parameter List         | ●○○   | 25  | 🌐     |
+| [Combine Functions into Transform](./exercises/drills/06-first-set/10-combine-functions-into-transform/README.pt.md) | Combine Functions into Transform | Duplicated Code                          | ●○○   | 30  | 🌐     |
 
 ### Chapter 7 — Encapsulation
 

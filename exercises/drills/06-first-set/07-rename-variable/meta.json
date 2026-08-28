@@ -1,0 +1,28 @@
+{
+  "id": "drill-06-07",
+  "title": "Rename Variable",
+  "type": "drill",
+  "chapter": 6,
+  "refactorings": ["Rename Variable"],
+  "smells": ["Mysterious Name"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": ["drill-06-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "rename-variable",
+      "title": "Names earned by working out the arithmetic first",
+      "tradeoff": "A rename cannot change behaviour, which cuts both ways: the suite can never break on a bad rename, so it can never confirm a good one either. Two identifiers could swap names and every test would still pass - the only backstop is a reader who checks the name against the formula, not against the old name's suggestion."
+    }
+  ],
+  "reviewFocus": [
+    "Does each renamed identifier match what the arithmetic actually computes, or what its old single-letter name merely suggested it might be - check the replacement for `t` against the variance formula, not against the word \"time\"?",
+    "Could any two of the renamed identifiers swap places and still compile and pass the suite? If so, their meanings need to be verified independently - a self-consistent swap is invisible to every command in this repository.",
+    "Did the reduce callback's own parameters get renamed, or only the `const` declarations? Rename Variable covers a function's parameters as much as its locals.",
+    "Is `meanPace` computed inline a second time, or does it call the shared `averagePaceSecondsPerKm` that already exists two functions away? A rename that reveals a duplicate computation is a second finding, not a distraction from this one.",
+    "Would a plausible-sounding but wrong name (`variance` for the mean-of-squares term, say) have survived a skim? That near-miss is the one worth discussing, not the single-letter names - those fail on sight."
+  ]
+}
