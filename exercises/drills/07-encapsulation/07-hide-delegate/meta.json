@@ -1,0 +1,28 @@
+{
+  "id": "drill-07-07",
+  "title": "Hide Delegate",
+  "type": "drill",
+  "chapter": 7,
+  "refactorings": ["Hide Delegate"],
+  "smells": ["Message Chains"],
+  "difficulty": 2,
+  "estimatedMinutes": 25,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "hide-delegate",
+      "title": "One loanLimit() query, not a chain",
+      "tradeoff": "Two one-line forwarding methods - one on Membership, one on Member - and Membership.tier() no longer has a public caller anywhere, so a future feature that needs the tier for something other than its loan limit has to add an accessor back, not find one waiting."
+    }
+  ],
+  "reviewFocus": [
+    "Count the call sites this fixes against the methods it adds: six `member.membership().tier().loanLimit()` chains collapsed by two forwarding methods. Does the walkthrough make that count explicit, or just assert the refactoring is worth it?",
+    "Is `Membership.tier()` still public anywhere, or does the compiler now refuse any code that tries to reach past `Member.loanLimit()`?",
+    "Does `Member.loanLimit()` call `this.#membership.loanLimit()`, or does it reach two levels down to `this.#membership.tier().loanLimit()` directly - skipping Membership's own hide and leaving half the chain exposed?",
+    "Compare against drill-07-08: both touch a forwarding method, in opposite directions. Does this walkthrough's reasoning for hiding actually fail the test drill-07-08 applies to Branch, or does it hold up?",
+    "Is `totalBranchLoanCapacity` still summing `loanLimit()` once per member, or did collapsing the chain quietly change what it computes?"
+  ]
+}

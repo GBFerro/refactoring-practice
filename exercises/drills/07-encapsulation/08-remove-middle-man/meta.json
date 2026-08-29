@@ -1,0 +1,28 @@
+{
+  "id": "drill-07-08",
+  "title": "Remove Middle Man",
+  "type": "drill",
+  "chapter": 7,
+  "refactorings": ["Remove Middle Man"],
+  "smells": ["Middle Man"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": ["drill-07-07"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "remove-middle-man",
+      "title": "branch.manager, not six forwards",
+      "tradeoff": "Every branch-ops function now imports Manager's shape along with Branch's - six call sites know there is a manager behind the branch, where before Branch's six methods hid that completely."
+    }
+  ],
+  "reviewFocus": [
+    "Count Branch's public methods before this refactoring against how many of them contain any logic of their own. If the count is six forwards and zero, does the walkthrough say so plainly?",
+    "Is `manager` a public field or accessor on Branch now, or did the six forwarding methods just get deleted with nothing put in their place?",
+    "Do all six branch-ops functions reach `branch.manager.<method>()` the same way, or does one of them keep a leftover forward that survived the pass?",
+    "Compare against drill-07-07: that drill added forwarding methods for the same reason this one deletes them. Does this walkthrough's argument for removal actually contradict 07-07's argument for hiding, or are they answering the same question with a different count?",
+    "Would exposing `branch.manager` here have been the wrong call if Branch had even one method with real logic of its own - and does the walkthrough say what that threshold is, not just that this case clears it?"
+  ]
+}

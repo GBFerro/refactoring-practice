@@ -24,7 +24,7 @@ npm install
 
 ## Exercises
 
-**Cobertura do catálogo: 17/61 refactorings.**
+**Cobertura do catálogo: 20/61 refactorings.**
 
 ### Chapter 6 — A First Set of Refactorings
 
@@ -52,6 +52,9 @@ npm install
 | [Replace Temp with Query](./exercises/drills/07-encapsulation/04-replace-temp-with-query/README.en.md)             | Replace Temp with Query       | Long Function       | ●●○   | 25  | 🌐     |
 | [Extract Class](./exercises/drills/07-encapsulation/05-extract-class/README.en.md)                                 | Extract Class                 | Large Class         | ●●○   | 30  | 🌐     |
 | [Inline Class](./exercises/drills/07-encapsulation/06-inline-class/README.en.md)                                   | Inline Class                  | Lazy Element        | ●○○   | 20  | 🌐     |
+| [Hide Delegate](./exercises/drills/07-encapsulation/07-hide-delegate/README.en.md)                                 | Hide Delegate                 | Message Chains      | ●●○   | 25  | 🌐     |
+| [Remove Middle Man](./exercises/drills/07-encapsulation/08-remove-middle-man/README.en.md)                         | Remove Middle Man             | Middle Man          | ●○○   | 20  | 🌐     |
+| [Substitute Algorithm](./exercises/drills/07-encapsulation/09-substitute-algorithm/README.en.md)                   | Substitute Algorithm          | Loops               | ●●○   | 35  | 🌐     |
 
 ### Chapter 8 — Moving Features
 

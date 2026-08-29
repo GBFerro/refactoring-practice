@@ -1,0 +1,28 @@
+{
+  "id": "drill-07-09",
+  "title": "Substitute Algorithm",
+  "type": "drill",
+  "chapter": 7,
+  "refactorings": ["Substitute Algorithm"],
+  "smells": ["Loops"],
+  "difficulty": 2,
+  "estimatedMinutes": 35,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "word-prefix-search",
+      "title": "Rank by word match, sort, map",
+      "tradeoff": "The tie-break the tests pin now comes from trusting Array.prototype.sort's stability guarantee rather than from a comparison you can read line by line in this file - correct on every engine this repo targets, but a promise the code no longer states for itself."
+    }
+  ],
+  "reviewFocus": [
+    "Does the replacement still miss a query that is a substring of a word but not a prefix of any word in the title - the same way src/ does - or did it quietly widen to full substring matching?",
+    "Feed an empty query through both versions. Does the clean algorithm still return the entire catalogue in original order, or did filtering out unmatched entries accidentally swallow the case where everything matches?",
+    "When two entries' earliest matching word falls at the same index, is catalogue order still preserved? If the sort were swapped for something not spec-guaranteed stable, would any test actually catch it?",
+    "Was the old algorithm's behaviour pinned by a test before the algorithm changed, or does the suite merely describe whatever the new code happens to do? Check the test file's git history, not just whether it is green.",
+    "Is the query lowercased once outside the comparison loop, or once per word - and would a title with a hundred words make that distinction visible in anything other than a benchmark?"
+  ]
+}

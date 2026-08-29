@@ -4,7 +4,7 @@
 
 Every refactoring in the second edition, and the exercise that drills it.
 
-**17/61 covered.**
+**20/61 covered.**
 
 | Refactoring                                   |   | Exercise                                                                                                              |
 | --------------------------------------------- | - | --------------------------------------------------------------------------------------------------------------------- |
@@ -25,9 +25,9 @@ Every refactoring in the second edition, and the exercise that drills it.
 | Replace Temp with Query                       | ✅ | [Replace Temp with Query](../exercises/drills/07-encapsulation/04-replace-temp-with-query/README.en.md)               |
 | Extract Class                                 | ✅ | [Extract Class](../exercises/drills/07-encapsulation/05-extract-class/README.en.md)                                   |
 | Inline Class                                  | ✅ | [Inline Class](../exercises/drills/07-encapsulation/06-inline-class/README.en.md)                                     |
-| Hide Delegate                                 | ⬜ | —                                                                                                                     |
-| Remove Middle Man                             | ⬜ | —                                                                                                                     |
-| Substitute Algorithm                          | ⬜ | —                                                                                                                     |
+| Hide Delegate                                 | ✅ | [Hide Delegate](../exercises/drills/07-encapsulation/07-hide-delegate/README.en.md)                                   |
+| Remove Middle Man                             | ✅ | [Remove Middle Man](../exercises/drills/07-encapsulation/08-remove-middle-man/README.en.md)                           |
+| Substitute Algorithm                          | ✅ | [Substitute Algorithm](../exercises/drills/07-encapsulation/09-substitute-algorithm/README.en.md)                     |
 | Move Function                                 | ⬜ | —                                                                                                                     |
 | Move Field                                    | ⬜ | —                                                                                                                     |
 | Move Statements into Function                 | ⬜ | —                                                                                                                     |
