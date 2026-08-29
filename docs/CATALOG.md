@@ -4,7 +4,7 @@
 
 Every refactoring in the second edition, and the exercise that drills it.
 
-**11/61 covered.**
+**17/61 covered.**
 
 | Refactoring                                   |   | Exercise                                                                                                              |
 | --------------------------------------------- | - | --------------------------------------------------------------------------------------------------------------------- |
@@ -19,12 +19,12 @@ Every refactoring in the second edition, and the exercise that drills it.
 | Combine Functions into Class                  | ✅ | [Combine Functions into Class](../exercises/drills/06-first-set/09-combine-functions-into-class/README.en.md)         |
 | Combine Functions into Transform              | ✅ | [Combine Functions into Transform](../exercises/drills/06-first-set/10-combine-functions-into-transform/README.en.md) |
 | Split Phase                                   | ✅ | [Split Phase](../exercises/drills/06-first-set/11-split-phase/README.en.md)                                           |
-| Encapsulate Record                            | ⬜ | —                                                                                                                     |
-| Encapsulate Collection                        | ⬜ | —                                                                                                                     |
-| Replace Primitive with Object                 | ⬜ | —                                                                                                                     |
-| Replace Temp with Query                       | ⬜ | —                                                                                                                     |
-| Extract Class                                 | ⬜ | —                                                                                                                     |
-| Inline Class                                  | ⬜ | —                                                                                                                     |
+| Encapsulate Record                            | ✅ | [Encapsulate Record](../exercises/drills/07-encapsulation/01-encapsulate-record/README.en.md)                         |
+| Encapsulate Collection                        | ✅ | [Encapsulate Collection](../exercises/drills/07-encapsulation/02-encapsulate-collection/README.en.md)                 |
+| Replace Primitive with Object                 | ✅ | [Replace Primitive with Object](../exercises/drills/07-encapsulation/03-replace-primitive-with-object/README.en.md)   |
+| Replace Temp with Query                       | ✅ | [Replace Temp with Query](../exercises/drills/07-encapsulation/04-replace-temp-with-query/README.en.md)               |
+| Extract Class                                 | ✅ | [Extract Class](../exercises/drills/07-encapsulation/05-extract-class/README.en.md)                                   |
+| Inline Class                                  | ✅ | [Inline Class](../exercises/drills/07-encapsulation/06-inline-class/README.en.md)                                     |
 | Hide Delegate                                 | ⬜ | —                                                                                                                     |
 | Remove Middle Man                             | ⬜ | —                                                                                                                     |
 | Substitute Algorithm                          | ⬜ | —                                                                                                                     |

@@ -24,7 +24,7 @@ npm install
 
 ## Exercises
 
-**Catalog coverage: 11/61 refactorings.**
+**Catalog coverage: 17/61 refactorings.**
 
 ### Chapter 6 — A First Set of Refactorings
 
@@ -44,7 +44,14 @@ npm install
 
 ### Chapter 7 — Encapsulation
 
-_No exercises in this module yet._
+| Exercise                                                                                                           | Refactoring                   | Smells              | Level | Min | Lang |
+| ------------------------------------------------------------------------------------------------------------------ | ----------------------------- | ------------------- | ----- | --- | ---- |
+| [Encapsulate Record](./exercises/drills/07-encapsulation/01-encapsulate-record/README.en.md)                       | Encapsulate Record            | Mutable Data        | ●○○   | 25  | 🌐   |
+| [Encapsulate Collection](./exercises/drills/07-encapsulation/02-encapsulate-collection/README.en.md)               | Encapsulate Collection        | Mutable Data        | ●●○   | 30  | 🌐   |
+| [Replace Primitive with Object](./exercises/drills/07-encapsulation/03-replace-primitive-with-object/README.en.md) | Replace Primitive with Object | Primitive Obsession | ●●○   | 35  | 🌐   |
+| [Replace Temp with Query](./exercises/drills/07-encapsulation/04-replace-temp-with-query/README.en.md)             | Replace Temp with Query       | Long Function       | ●●○   | 25  | 🌐   |
+| [Extract Class](./exercises/drills/07-encapsulation/05-extract-class/README.en.md)                                 | Extract Class                 | Large Class         | ●●○   | 30  | 🌐   |
+| [Inline Class](./exercises/drills/07-encapsulation/06-inline-class/README.en.md)                                   | Inline Class                  | Lazy Element        | ●○○   | 20  | 🌐   |
 
 ### Chapter 8 — Moving Features
 

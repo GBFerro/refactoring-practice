@@ -1,0 +1,28 @@
+{
+  "id": "drill-07-01",
+  "title": "Encapsulate Record",
+  "type": "drill",
+  "chapter": 7,
+  "refactorings": ["Encapsulate Record"],
+  "smells": ["Mutable Data"],
+  "difficulty": 1,
+  "estimatedMinutes": 25,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "encapsulate-record",
+      "title": "A class with three getters, not a public interface",
+      "tradeoff": "Four fields still have no public getter because no caller reads them yet - the class is smaller than the record it replaced, and the next caller that needs one has to add it, not assume it is already there."
+    }
+  ],
+  "reviewFocus": [
+    "Can any file outside loan.ts still write `dueOn`, `returnedOn`, or `renewalCount` directly - by import, not by convention? A private field TypeScript refuses to compile against is the only version of this that counts.",
+    "Does every public getter answer a question an existing caller in this exercise actually asks, or did one get added speculatively for a future caller that does not exist yet?",
+    "`renew` reads `returnedOn` and `renewalCount` and then, on the same call, writes `dueOn` and `renewalCount`. Encapsulating the record did not remove that internal coupling - it only gave the whole sequence one name. Is that in scope here, or is it the next refactoring?",
+    "Is `id` still derived the same way in both the challenge and the solution? A refactor that quietly changes what makes a loan's identity is a behaviour change wearing a structural one.",
+    "Compare this solution's getter set to drill-06-06's: that drill rejected a getter for the whole settings record. Does this solution's `Loan` avoid the same trap, or does something read all three private fields through one call?"
+  ]
+}

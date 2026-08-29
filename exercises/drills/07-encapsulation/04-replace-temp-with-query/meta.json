@@ -1,0 +1,28 @@
+{
+  "id": "drill-07-04",
+  "title": "Replace Temp with Query",
+  "type": "drill",
+  "chapter": 7,
+  "refactorings": ["Replace Temp with Query"],
+  "smells": ["Long Function"],
+  "difficulty": 2,
+  "estimatedMinutes": 25,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "overdue-fine-queries",
+      "title": "Small queries, not long-lived temps",
+      "tradeoff": "Four tiny functions recomputing from the same two arguments instead of eight temps computed once, so the date arithmetic behind daysLate runs more than once per notice - cheap here, and the wrong trade the day that arithmetic becomes a database lookup."
+    }
+  ],
+  "reviewFocus": [
+    "Count how many times daysBetween actually runs for one call to overdueNotice, by following the call chain rather than the call sites. Does the walkthrough's count match the code?",
+    "Does every query take today as a parameter, or does any of them reach for the clock itself? That distinction is the difference between a safe recomputation and a race.",
+    "Is chargeableDays computed from daysLate, or does it redo the date arithmetic - the exact duplication this refactoring exists to prevent?",
+    "Is the grace-period boundary (daysLate equal to the grace period, not one more or one less) still exactly where the original put it?",
+    "Would this recomputation still be free if daysBetween were a network call instead of date arithmetic - and does the walkthrough actually answer that, or just assert it?"
+  ]
+}

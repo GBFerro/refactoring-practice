@@ -1,0 +1,27 @@
+{
+  "id": "drill-07-06",
+  "title": "Inline Class",
+  "type": "drill",
+  "chapter": 7,
+  "refactorings": ["Inline Class"],
+  "smells": ["Lazy Element"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": ["drill-07-05"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "inline-class",
+      "title": "A plain string where the wrapper used to be",
+      "tradeoff": "Losing the seam a future validation or parsing rule for catalogue keys could have grown into, and the small bit of type safety a dedicated key type gave for free."
+    }
+  ],
+  "reviewFocus": [
+    "Does anything still construct the old key-wrapping class, anywhere - including a file this task did not touch?",
+    "Is matchesKey() a plain string comparison now, or does it still build an object just to compare it?",
+    "Was toString() actually unused before it was deleted, or did removing it change behaviour the tests failed to catch?",
+    "Compare against drill-07-05: name the one thing ContactDetails earned that the inlined class here never did."
+  ]
+}

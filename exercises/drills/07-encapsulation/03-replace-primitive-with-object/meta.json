@@ -1,0 +1,28 @@
+{
+  "id": "drill-07-03",
+  "title": "Replace Primitive with Object",
+  "type": "drill",
+  "chapter": 7,
+  "refactorings": ["Replace Primitive with Object"],
+  "smells": ["Primitive Obsession"],
+  "difficulty": 2,
+  "estimatedMinutes": 35,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "shelf-code",
+      "title": "One ShelfCode, one parser",
+      "tradeoff": "Two of the three callers now answer edge-shaped shelf codes differently than they used to - a three-letter section, a book still in processing with no shelf letter yet - because there is now exactly one place that decides what a shelf code means, and that decision was never actually reviewed before. Making those two callers agree with the third was deliberately left out of this diff."
+    }
+  ],
+  "reviewFocus": [
+    "Feed \"FIC-813\" (no shelf letter yet) through cartSection, spineLabelSection, and sectionTally as they stood in src/. Do they still disagree the way WALKTHROUGH.md's trace says, or did something already change?",
+    "Does ShelfCode.parse throw on a string that was never a valid shelf code, and is that itself a behaviour change worth its own line in a commit message - not this one?",
+    "Is ShelfCode.section used by all three callers, or did one of them keep a .slice() or a regex of its own?",
+    "Would you have widened the public signatures from string to ShelfCode, or is stopping at the string boundary the right amount of refactoring for this diff?",
+    "Is fixing cartSection's and sectionTally's edge-case answers proposed as a separate, later change - and does the walkthrough say why, not just that it should be?"
+  ]
+}

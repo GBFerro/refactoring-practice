@@ -1,0 +1,28 @@
+{
+  "id": "drill-07-02",
+  "title": "Encapsulate Collection",
+  "type": "drill",
+  "chapter": 7,
+  "refactorings": ["Encapsulate Collection"],
+  "smells": ["Mutable Data"],
+  "difficulty": 2,
+  "estimatedMinutes": 30,
+  "prerequisites": ["drill-07-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "encapsulate-collection",
+      "title": "No getter at all - borrow, return, and query methods instead",
+      "tradeoff": "MemberAccount has no way to hand back 'the loans' in any form. A caller with a real need for the raw list - a data export, a full-account dump - has nowhere to go but a new purpose-built method, written by hand, same as every query before it."
+    }
+  ],
+  "reviewFocus": [
+    "Is there anywhere - a getter, a field, a method - that still returns the live `#loans` array, or something built from it without copying? `loans.slice()` handed straight back is the same bug with one extra character.",
+    "Does a *copy* of the array actually stop a caller from being misled - would `account.someGetter().push(x)` compile, run, and silently do nothing? A test that only checks 'the account isn't corrupted' can miss this; check whether anything would have caught a caller trusting the mutation.",
+    "Compare this solution's getter set to drill-07-01's: that drill added a getter for every field an existing caller reads. Does this solution add zero getters for the collection itself, or does one purpose-built query quietly return something collection-shaped?",
+    "`borrow` checks the loan cap and the duplicate-item rule before pushing, all inside one method now. Did encapsulating the collection remove the chance of those two checks drifting out of sync, or just give the pair of them one name - same question 06-06 and 07-01 both asked about their own methods?",
+    "Would a sixth loan-related query - due-today, longest-overdue, whatever a reviewer invents - require a new method on `MemberAccount`, or could it be answered from something already exposed? If the latter, what got exposed that should not have been?"
+  ]
+}

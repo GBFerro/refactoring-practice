@@ -1,0 +1,28 @@
+{
+  "id": "drill-07-05",
+  "title": "Extract Class",
+  "type": "drill",
+  "chapter": 7,
+  "refactorings": ["Extract Class"],
+  "smells": ["Large Class"],
+  "difficulty": 2,
+  "estimatedMinutes": 30,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "extract-class",
+      "title": "Contact details as their own class",
+      "tradeoff": "One more class and four one-line forwarding methods on Member, in exchange for a contact cluster that can be read, tested, and changed without touching membership logic."
+    }
+  ],
+  "reviewFocus": [
+    "Does ContactDetails only ever see the fields it declares, or was the whole MemberProps object handed to it wholesale?",
+    "Are mailingAddress() and the post-preferred line in contactLine() sharing one address-building helper, or has that logic been written twice?",
+    "Would deleting ContactDetails today touch anything beyond Member's four forwarding methods? If so, something leaked past the seam.",
+    "Is Member still delegating to contact, or did the extraction quietly turn into exposing member.contact.* at call sites - a different decision, and one that belongs to drill-07-07, not this drill?",
+    "Compare against drill-07-06: does this solution's justification for keeping ContactDetails as its own class actually hold, or is it one dropped field away from being the same shape as the class that drill inlines?"
+  ]
+}
