@@ -1,0 +1,28 @@
+{
+  "id": "drill-08-02",
+  "title": "Move Field",
+  "type": "drill",
+  "chapter": 8,
+  "refactorings": ["Move Field"],
+  "smells": ["Shotgun Surgery"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": ["drill-07-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "move-field",
+      "title": "A delegating getter, not a second copy",
+      "tradeoff": "The delegating getter only works because every customer on a plan holds a reference to the same ContractPlan instance - a customer built from a separately constructed plan object that merely shares an id would silently stop agreeing with its siblings again, and nothing in these types would catch it."
+    }
+  ],
+  "reviewFocus": [
+    "Can any file still write straight into a discountRate field on Customer - by import, not by convention? A private field TypeScript refuses to compile against is the only version of this that counts.",
+    "Does renegotiatePlanRate still loop over customers to write discountRate anywhere, or does it write the rate exactly once, on the plan?",
+    "If two Customer instances were built from separately constructed ContractPlan objects that merely share an id, would their discount rates still agree? What in the code actually guarantees they don't - a shared object reference, or a convention nobody enforces?",
+    "Is invoiceTotalCents unchanged between the challenge and the solution? If moving the field required touching every caller of customer.discountRate, something about the getter's shape went wrong.",
+    "Compare ContractPlan.renegotiate to Loan.renew and Loan.markReturned from drill-07-01: does this solution add a plain public setter anywhere it could have used a named method instead?"
+  ]
+}

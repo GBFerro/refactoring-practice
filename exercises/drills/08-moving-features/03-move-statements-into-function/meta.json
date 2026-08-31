@@ -1,0 +1,28 @@
+{
+  "id": "drill-08-03",
+  "title": "Move Statements into Function",
+  "type": "drill",
+  "chapter": 8,
+  "refactorings": ["Move Statements into Function"],
+  "smells": ["Duplicated Code"],
+  "difficulty": 2,
+  "estimatedMinutes": 25,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "move-statements-into-function",
+      "title": "One shared total, computed once",
+      "tradeoff": "The receipt builder now owns a business rule its callers used to own individually, so a future exception for one caller has nowhere to live but a parameter or a branch."
+    }
+  ],
+  "reviewFocus": [
+    "Before the merge, did every caller's copy of the total computation actually agree, or did the reprintReceipt copy get folded in without anyone checking?",
+    "Is the credit-clamp fix committed separately from the mechanical move, or are a behavior change and a refactoring sitting in the same diff?",
+    "Did renderReceipt's parameter list actually shrink, or is totalCents still being threaded through out of caution?",
+    "Do the three callers' own trailing lines still live on the callers, or did one of them creep into the shared function along with the total?",
+    "Would this same reasoning - fold it in once everyone agrees - already have failed if one caller's difference had been a real, wanted difference rather than a bug? Compare against drill-08-04."
+  ]
+}

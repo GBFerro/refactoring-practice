@@ -24,7 +24,7 @@ npm install
 
 ## Exercises
 
-**Catalog coverage: 20/61 refactorings.**
+**Catalog coverage: 23/61 refactorings.**
 
 ### Chapter 6 — A First Set of Refactorings
 
@@ -58,7 +58,11 @@ npm install
 
 ### Chapter 8 — Moving Features
 
-_No exercises in this module yet._
+| Exercise                                                                                                             | Refactoring                   | Smells          | Level | Min | Lang |
+| -------------------------------------------------------------------------------------------------------------------- | ----------------------------- | --------------- | ----- | --- | ---- |
+| [Move Function](./exercises/drills/08-moving-features/01-move-function/README.en.md)                                 | Move Function                 | Feature Envy    | ●○○   | 20  | 🌐   |
+| [Move Field](./exercises/drills/08-moving-features/02-move-field/README.en.md)                                       | Move Field                    | Shotgun Surgery | ●○○   | 20  | 🌐   |
+| [Move Statements into Function](./exercises/drills/08-moving-features/03-move-statements-into-function/README.en.md) | Move Statements into Function | Duplicated Code | ●●○   | 25  | 🌐   |
 
 ### Chapter 9 — Organizing Data
 

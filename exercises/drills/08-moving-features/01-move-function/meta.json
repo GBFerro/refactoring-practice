@@ -1,0 +1,28 @@
+{
+  "id": "drill-08-01",
+  "title": "Move Function",
+  "type": "drill",
+  "chapter": 8,
+  "refactorings": ["Move Function"],
+  "smells": ["Feature Envy"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "move-function",
+      "title": "Delivery distance moves in with the route",
+      "tradeoff": "order.ts loses a calculation many readers will still instinctively look for there, and the frozen call signature keeps the order first in the parameter list even once the function has nothing left to say about it."
+    }
+  ],
+  "reviewFocus": [
+    "Does deliveryDistanceKm still read any field of Order besides customerId? A second one would mean it was never purely feature-envious of Route.",
+    "Are stopIndexFor and addsReturnLeg genuinely two things route.ts needed named, or is this quietly doing Extract Function on top of Move Function?",
+    "Does order.ts still import Route for any reason - as a type or otherwise? If it does, the move is incomplete.",
+    "Does index.ts export deliveryDistanceKm under the same name and signature it always has, with nothing in tests/ touched?",
+    "Would you have moved order.customerId itself into route.ts's argument list instead of the whole Order? Is passing only the field it needs a better seam than passing the object?"
+  ]
+}
