@@ -1,0 +1,28 @@
+{
+  "id": "drill-08-05",
+  "title": "Replace Inline Code with Function Call",
+  "type": "drill",
+  "chapter": 8,
+  "refactorings": ["Replace Inline Code with Function Call"],
+  "smells": ["Duplicated Code"],
+  "difficulty": 2,
+  "estimatedMinutes": 25,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "replace-inline-code-with-function-call",
+      "title": "One predicate, called from both features",
+      "tradeoff": "order-safety.ts now depends on menu.ts's notion of what makes a product safe, so a future change to that definition - say, the online menu starts ignoring trace-allergen labels a sensitive customer still cares about - silently changes what production flags too, instead of the two checks drifting independently and announcing the disagreement."
+    }
+  ],
+  "reviewFocus": [
+    "Did you establish that the hand-rolled loop and productIsSafeFor agree on every avoided allergen, or only that the given tests pass? Those are not the same claim.",
+    "Does itemsWithAllergenConflict still contain any hand-written loop over allergens, or does order-safety.ts now import and call productIsSafeFor?",
+    "If a product lists the same allergen twice, or the order's avoid-list repeats one, does the flagged list still include the item exactly once?",
+    "Does index.ts still export itemsWithAllergenConflict under the same name and signature, with nothing in tests/ touched?",
+    "menu.ts and order-safety.ts now both depend on productIsSafeFor's definition of \"safe\" - is that coupling the right call here, or would a reviewer reasonably want the production safety check to stay independent of the browsing feature, even at the cost of the duplication?"
+  ]
+}

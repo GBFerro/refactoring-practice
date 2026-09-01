@@ -187,10 +187,10 @@ stronger test added once the drill has been solved once, as a permanent regressi
 ## The sibling: when the code wants to go the other way
 
 This drill's precondition held once the bug was fixed — all three callers wanted the exact
-same total. `drill-08-04`, *Move
-Statements to Callers*, is what you reach for when they do not: a shared function doing
-something that only some of its callers actually want, so the statements belong back out at
-the call sites, not further in.
+same total. [`04-move-statements-to-callers`](../../../04-move-statements-to-callers/README.en.md),
+*Move Statements to Callers*, is what you reach for when they do not: a shared function
+doing something that only some of its callers actually want, so the statements belong back
+out at the call sites, not further in.
 
 The signal that tells them apart is not "how many lines differ" — it is what fixing the
 difference would cost. Here, fixing it cost one word, `Math.max`, and nothing about

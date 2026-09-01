@@ -1,0 +1,28 @@
+{
+  "id": "drill-08-08",
+  "title": "Replace Loop with Pipeline",
+  "type": "drill",
+  "chapter": 8,
+  "refactorings": ["Replace Loop with Pipeline"],
+  "smells": ["Loops"],
+  "difficulty": 2,
+  "estimatedMinutes": 25,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "replace-loop-with-pipeline",
+      "title": "Named pipeline steps, one loop left alone",
+      "tradeoff": "Reading the accepted or rejected total now means trusting filter/map/reduce chains under names instead of watching one loop build them, and the capacity check is a hand-written loop sitting next to three pipelines - a reader has to notice why, not assume the exercise ran out of time to convert it."
+    }
+  ],
+  "reviewFocus": [
+    "Do renderAcceptedSection and renderRejectedSection each read as one filter plus one map, or did the filter predicate grow a second job along the way?",
+    "Is acceptedTotalCents computed by folding the already-filtered accepted deliveries, or does it re-check qualityPassed itself - a second definition of \"accepted\" that could drift from the first?",
+    "Does findCapacityBreach still stop at the first delivery that tips the scale, or would a reader's rewrite as reduce() silently keep scanning past it?",
+    "Is the capacity check's loop commented with why it stayed a loop, or does it just sit there looking like an oversight next to three pipelines?",
+    "Would collapsing accepted and rejected into a single pass with two accumulators (as in the challenge) actually be fewer lines than two filters - and if so, is line count the right way to judge this trade?"
+  ]
+}

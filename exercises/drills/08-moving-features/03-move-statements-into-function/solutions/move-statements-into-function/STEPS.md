@@ -13,8 +13,8 @@ call sites up and check that they actually are.
 **What it costs:** `renderReceipt` now owns a decision — floor the total at zero — that
 used to live at each call site. A caller that legitimately needed a different total would
 have nowhere to ask for it except a new parameter or a branch. See
-`drill-08-04` for the shape that
-produces, and for what to do about it.
+[`../../../04-move-statements-to-callers/README.en.md`](../../../04-move-statements-to-callers/README.en.md)
+for the shape that produces, and for what to do about it.
 
 ---
 

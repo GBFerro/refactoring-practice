@@ -1,0 +1,28 @@
+{
+  "id": "drill-08-04",
+  "title": "Move Statements to Callers",
+  "type": "drill",
+  "chapter": 8,
+  "refactorings": ["Move Statements to Callers"],
+  "smells": ["Divergent Change"],
+  "difficulty": 2,
+  "estimatedMinutes": 20,
+  "prerequisites": ["drill-08-03"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "move-statements-to-callers",
+      "title": "Two closings, one shared summary",
+      "tradeoff": "A third audience needs a third caller written by hand instead of a new branch on one function, and the weight-unit choice - grams for the driver, kilograms for the courier - now lives in two places instead of behind one flag."
+    }
+  ],
+  "reviewFocus": [
+    "Does the shared function still take a flag to pick which closing to produce, or did the flag actually disappear along with the statements it was guarding?",
+    "Is the shared function's new name still true now that it returns a prelude, not a complete note - or did it keep a name that promises more than it does?",
+    "Would a third audience (a wholesale pickup held at the dock, say) need to touch the shared function at all, or only add its own caller?",
+    "Is totalWeightGrams still one query both callers call, or did the kilogram conversion get re-derived by hand in one of them?",
+    "This drill's precondition is that the two callers do NOT agree. Does the walkthrough say what would have to be true for them to belong back in one function - and does it point at drill-08-03 for the contrast?"
+  ]
+}
