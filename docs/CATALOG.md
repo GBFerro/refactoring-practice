@@ -4,7 +4,7 @@
 
 Every refactoring in the second edition, and the exercise that drills it.
 
-**29/61 covered.**
+**34/61 covered.**
 
 | Refactoring                                   |   | Exercise                                                                                                                                |
 | --------------------------------------------- | - | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -37,11 +37,11 @@ Every refactoring in the second edition, and the exercise that drills it.
 | Split Loop                                    | ✅ | [Split Loop](../exercises/drills/08-moving-features/07-split-loop/README.en.md)                                                         |
 | Replace Loop with Pipeline                    | ✅ | [Replace Loop with Pipeline](../exercises/drills/08-moving-features/08-replace-loop-with-pipeline/README.en.md)                         |
 | Remove Dead Code                              | ✅ | [Remove Dead Code](../exercises/drills/08-moving-features/09-remove-dead-code/README.en.md)                                             |
-| Split Variable                                | ⬜ | —                                                                                                                                       |
-| Rename Field                                  | ⬜ | —                                                                                                                                       |
-| Replace Derived Variable with Query           | ⬜ | —                                                                                                                                       |
-| Change Reference to Value                     | ⬜ | —                                                                                                                                       |
-| Change Value to Reference                     | ⬜ | —                                                                                                                                       |
+| Split Variable                                | ✅ | [Split Variable](../exercises/drills/09-organizing-data/01-split-variable/README.en.md)                                                 |
+| Rename Field                                  | ✅ | [Rename Field](../exercises/drills/09-organizing-data/02-rename-field/README.en.md)                                                     |
+| Replace Derived Variable with Query           | ✅ | [Replace Derived Variable with Query](../exercises/drills/09-organizing-data/03-replace-derived-variable-with-query/README.en.md)       |
+| Change Reference to Value                     | ✅ | [Change Reference to Value](../exercises/drills/09-organizing-data/04-change-reference-to-value/README.en.md)                           |
+| Change Value to Reference                     | ✅ | [Change Value to Reference](../exercises/drills/09-organizing-data/05-change-value-to-reference/README.en.md)                           |
 | Decompose Conditional                         | ⬜ | —                                                                                                                                       |
 | Consolidate Conditional Expression            | ⬜ | —                                                                                                                                       |
 | Replace Nested Conditional with Guard Clauses | ⬜ | —                                                                                                                                       |

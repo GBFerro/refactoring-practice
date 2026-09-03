@@ -1,0 +1,28 @@
+{
+  "id": "drill-09-05",
+  "title": "Change Value to Reference",
+  "type": "drill",
+  "chapter": 9,
+  "refactorings": ["Change Value to Reference"],
+  "smells": ["Shotgun Surgery"],
+  "difficulty": 2,
+  "estimatedMinutes": 25,
+  "prerequisites": ["drill-09-04"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "change-value-to-reference",
+      "title": "One rider record, trips that point at it",
+      "tradeoff": "Every trip now depends on the directory that owns its rider, so a rider can no longer be corrected by editing a trip in isolation - a real loss of independence for code that used to treat each trip as a fully self-contained record."
+    }
+  ],
+  "reviewFocus": [
+    "Does bookTrip in the solution still copy the rider's fields onto the trip anywhere, or does the trip genuinely hold the same Rider object the directory owns?",
+    "Does correctRiderPhone touch anything beyond the one rider record in the directory - if it reaches into trips directly, the point of the refactoring has been missed.",
+    "Read the comment naming what tests/rider-trips.spec.ts deliberately does not assert - does it still hold, or did a later step quietly make it false?",
+    "Is Rider still exported with mutable name/phone/email fields, or did the refactor accidentally make it a readonly value - which would be drill-09-04's answer to the wrong problem?",
+    "Compare against drill-09-04: does this solution's Rider earn reference semantics by needing exactly one owner that updates are visible through - the opposite of drill-09-04's Fare, which is safe to duplicate freely?"
+  ]
+}

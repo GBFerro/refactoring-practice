@@ -1,0 +1,28 @@
+{
+  "id": "drill-09-03",
+  "title": "Replace Derived Variable with Query",
+  "type": "drill",
+  "chapter": 9,
+  "refactorings": ["Replace Derived Variable with Query"],
+  "smells": ["Mutable Data"],
+  "difficulty": 2,
+  "estimatedMinutes": 20,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "trip-total-query",
+      "title": "Total fare computed on demand",
+      "tradeoff": "totalFareCents re-sums every trip on every call instead of reading a running total, so an account with years of trip history pays an O(n) scan each time a balance is checked - the right trade until a real account's trip count shows up in a profile, and cheap insurance against the exact class of bug this drill removes."
+    }
+  ],
+  "reviewFocus": [
+    "Does src/ still contain a path - applyLateReturnFee - that changes a trip's fare without touching totalFareCentsCache? If that path were removed, the challenge would stop demonstrating anything the refactoring actually fixes.",
+    "Does the shipped test suite ever call totalFareCents immediately after applyLateReturnFee? It must not: that exact combination is the one place src and the solution are allowed to disagree, and no single expected value could pass both.",
+    "Is totalFareCents's exported name and signature identical in src/ and the solution? Only RiderAccount's internal shape should differ, never anything a caller touches.",
+    "Does the walkthrough say, in so many words, that this refactoring changes an untested behaviour for the better rather than merely reading nicer? That distinction is the point of the exercise, not a footnote.",
+    "Would you have kept totalFareCentsCache as a real cache, invalidated from inside both mutators instead of deleted outright - and is the walkthrough honest about when that would be the right call?"
+  ]
+}

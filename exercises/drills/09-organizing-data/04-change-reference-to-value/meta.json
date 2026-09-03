@@ -1,0 +1,28 @@
+{
+  "id": "drill-09-04",
+  "title": "Change Reference to Value",
+  "type": "drill",
+  "chapter": 9,
+  "refactorings": ["Change Reference to Value"],
+  "smells": ["Mutable Data"],
+  "difficulty": 2,
+  "estimatedMinutes": 25,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "change-reference-to-value",
+      "title": "Fare corrected by replacement, not mutation",
+      "tradeoff": "Every fare correction now allocates a new Fare instead of editing the old one in place, and Fare.cents can no longer be watched for changes at a distance - a real cost if some future feature genuinely wanted to observe a fare mutate over time."
+    }
+  ],
+  "reviewFocus": [
+    "Does bookRoundTrip still hand the same Fare instance to both legs - and does the solution's WALKTHROUGH correctly explain why that sharing is now harmless rather than removing it out of caution?",
+    "Does adjustTripFare, or anything it calls, ever mutate a Fare's cents after construction - including inside Fare itself - or does every correction go through reassigning the trip's own field?",
+    "Is Fare.cents actually declared readonly, or is immutability only a convention nothing enforces?",
+    "Read the comment above the aliasing guard test in tests/fare.spec.ts and the one explaining what is deliberately absent - do both still hold, or did a later step quietly make one of them false?",
+    "Compare against drill-09-05: does this solution's Fare earn value semantics by being small and safe to duplicate freely - the opposite of drill-09-05's Rider, which needs exactly one owner?"
+  ]
+}

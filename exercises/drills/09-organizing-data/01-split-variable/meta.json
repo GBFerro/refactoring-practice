@@ -1,0 +1,28 @@
+{
+  "id": "drill-09-01",
+  "title": "Split Variable",
+  "type": "drill",
+  "chapter": 9,
+  "refactorings": ["Split Variable"],
+  "smells": ["Mutable Data"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "split-variable",
+      "title": "Two named results instead of one reused variable",
+      "tradeoff": "The metered fare and the deposit refund each get their own name and their own line, so a function that used to read as one running number now reads as two - a fair trade for a reader no longer having to track which question the shared variable currently answers."
+    }
+  ],
+  "reviewFocus": [
+    "Does the loop's accumulator (now meteredFareCents) still answer only 'what does the meter say', or does anything downstream write into it for a second, unrelated purpose?",
+    "Is depositRefundCents a const, assigned exactly once? A let there would suggest it still has more than one job.",
+    "Does totalDueCents read meteredFareCents and depositRefundCents directly, or does it still route through a shared temp that could reintroduce the smell?",
+    "Would you have kept the deposit refund's zero case as a ternary or extracted a named predicate - and does the expression read as one sentence at the call site?",
+    "Compare the loop accumulator's let to depositRefundCents's const: does the split make that distinction visible at a glance, or does a reader still have to trace assignments to tell them apart?"
+  ]
+}

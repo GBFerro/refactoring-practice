@@ -24,7 +24,7 @@ npm install
 
 ## Exercises
 
-**Catalog coverage: 29/61 refactorings.**
+**Catalog coverage: 34/61 refactorings.**
 
 ### Chapter 6 — A First Set of Refactorings
 
@@ -72,7 +72,13 @@ npm install
 
 ### Chapter 9 — Organizing Data
 
-_No exercises in this module yet._
+| Exercise                                                                                                                         | Refactoring                         | Smells          | Level | Min | Lang |
+| -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --------------- | ----- | --- | ---- |
+| [Split Variable](./exercises/drills/09-organizing-data/01-split-variable/README.en.md)                                           | Split Variable                      | Mutable Data    | ●○○   | 20  | 🌐   |
+| [Rename Field](./exercises/drills/09-organizing-data/02-rename-field/README.en.md)                                               | Rename Field                        | Mysterious Name | ●○○   | 25  | 🌐   |
+| [Replace Derived Variable with Query](./exercises/drills/09-organizing-data/03-replace-derived-variable-with-query/README.en.md) | Replace Derived Variable with Query | Mutable Data    | ●●○   | 20  | 🌐   |
+| [Change Reference to Value](./exercises/drills/09-organizing-data/04-change-reference-to-value/README.en.md)                     | Change Reference to Value           | Mutable Data    | ●●○   | 25  | 🌐   |
+| [Change Value to Reference](./exercises/drills/09-organizing-data/05-change-value-to-reference/README.en.md)                     | Change Value to Reference           | Shotgun Surgery | ●●○   | 25  | 🌐   |
 
 ### Chapter 10 — Simplifying Conditional Logic
 

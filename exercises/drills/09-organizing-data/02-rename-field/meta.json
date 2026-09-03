@@ -1,0 +1,28 @@
+{
+  "id": "drill-09-02",
+  "title": "Rename Field",
+  "type": "drill",
+  "chapter": 9,
+  "refactorings": ["Rename Field"],
+  "smells": ["Mysterious Name"],
+  "difficulty": 1,
+  "estimatedMinutes": 25,
+  "prerequisites": ["drill-07-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "rename-field",
+      "title": "Trip renamed, the published log row frozen on purpose",
+      "tradeoff": "Trip reads clearly inside this module now, but tripLogRow.ts has to spell out the old warehouse key names by hand on every field instead of forwarding the record as-is, and that translation is one more place a future field could drift out of sync with the published format if nobody remembers why it is there."
+    }
+  ],
+  "reviewFocus": [
+    "Does TripLogRow still declare dt, st, and en as its own key names, unrenamed - or did the rename bleed across the boundary into the published wire format?",
+    "Does anything outside trip.ts still read a trip's duration or station fields directly, by any name, instead of going through newTrip, fareCents, routeSummary, or tripLogRow?",
+    "Was Trip's field order preserved through the rename (duration, start, end), or did reordering ride along with renaming in the same commit?",
+    "Is newTrip's signature still three positional parameters - a fourth would have been a real Introduce Parameter Object question, not a Rename Field one.",
+    "Would you have inlined tripLogRow's field-by-field mapping into a spread with an override, or is naming each key explicitly worth the extra lines here? What does each read like at the call site?"
+  ]
+}
