@@ -30,6 +30,8 @@ export interface Meta {
   coverageTargets?: string[];
   /** Exercise-specific things a reviewer should weigh hardest (docs/REVIEW.md). */
   reviewFocus?: string[];
+  /** True when the refactoring corrects a real bug; requires a `tests-fixed/` suite. */
+  fixesBug?: boolean;
   allowMultipleSolutions?: boolean;
   allowMultipleSolutionsReason?: string;
 }

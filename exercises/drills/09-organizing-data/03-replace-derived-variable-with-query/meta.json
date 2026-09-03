@@ -24,5 +24,6 @@
     "Is totalFareCents's exported name and signature identical in src/ and the solution? Only RiderAccount's internal shape should differ, never anything a caller touches.",
     "Does the walkthrough say, in so many words, that this refactoring changes an untested behaviour for the better rather than merely reading nicer? That distinction is the point of the exercise, not a footnote.",
     "Would you have kept totalFareCentsCache as a real cache, invalidated from inside both mutators instead of deleted outright - and is the walkthrough honest about when that would be the right call?"
-  ]
+  ],
+  "fixesBug": true
 }

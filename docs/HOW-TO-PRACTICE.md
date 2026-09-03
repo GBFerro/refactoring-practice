@@ -85,6 +85,16 @@ guards against the impulse, not the intention, and it would be silly to pretend 
 order you extracted things in. That is expected and it is not a mistake on your part. The
 comparison that teaches is `--steps` against your own commit log.
 
+## When an exercise fixes a bug
+
+A few exercises carry a `tests-fixed/` folder. Those tests run only against the published
+solutions, never against your `src/`, because they pin behaviour the challenge gets
+**wrong** — and a suite that has to stay green against the challenge cannot pin that.
+
+Two consequences. Your `npm test` will never run them, so a green suite is not proof you
+closed the hole. And the files are spoilers: they name the bug precisely. Leave them shut
+until you are done, then read them as the answer to "did I actually fix it?"
+
 ## When an exercise ships without tests
 
 A few katas hand you code and no safety net — writing it is the first half of the

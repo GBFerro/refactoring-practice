@@ -967,3 +967,50 @@ workflow e o `package.json` divergem.
 
 Os scripts npm que sobraram são os que fazem sentido serem nativos (`test`, `lint`,
 `format`) mais dois atalhos. De dez scripts, quatro.
+
+---
+
+## 17. `tests-fixed/` — o furo que o módulo 4 revelou
+
+O §5 assume que desafio e solução concordam em tudo: uma suíte só, rodando contra os dois,
+é a prova de que a refatoração preservou o comportamento. Isso vale para a grande maioria
+dos refactorings do catálogo — e **não vale** para os que corrigem um bug.
+
+Três agentes bateram nisso de forma independente no capítulo 9, antes de a coisa ter nome.
+Substituir uma variável derivada por uma query, ou colapsar um objeto aliasado em valor,
+não reorganiza código: **remove uma categoria de bug**. Aí desafio e solução discordam
+exatamente no cenário mais importante do exercício, e a suíte compartilhada não pode fixar
+esse cenário — ela precisa continuar verde contra o desafio bugado.
+
+O resultado, sem uma saída, é perverso: o exercício cujo valor é fechar um buraco é
+justamente o que não consegue provar que fechou.
+
+**A saída: `tests-fixed/`, que roda só contra as soluções.**
+
+```
+exercises/drills/09-organizing-data/03-.../
+├── tests/          # verde contra src/ e contra toda solução
+└── tests-fixed/    # só soluções — a prova de que o bug morreu
+```
+
+Uma linha no `vitest.config.ts` (o glob extra entra apenas no modo `SOLUTIONS=1`) e duas
+regras no validador: `"fixesBug": true` no `meta.json` **exige** a pasta, e a pasta sem a
+flag é erro. A assimetria é de propósito — quem cria a pasta declara a intenção, e quem
+declara a intenção não pode esquecer a pasta.
+
+O que isso **não** é: um jeito de passar mudança de comportamento por baixo da rede. A
+refatoração continua tendo que preservar tudo que a suíte compartilhada fixa. O
+`tests-fixed/` é mais estreito que isso — fixa a única coisa que o código antigo fazia
+errado.
+
+Medido no exercício de referência: `npm test` roda 8 testes contra o desafio,
+`SOLUTIONS=1` roda 10 contra a solução. Os dois a mais são a prova. E o desafio, conferido
+à mão, devolve 300 onde a soma real é 450.
+
+Duas consequências para quem pratica, ambas no `HOW-TO-PRACTICE.md`: a suíte verde deixa de
+ser prova de que você fechou o buraco, e os arquivos são spoilers — nomeiam o bug com
+precisão.
+
+**Retrofit pendente:** `09-04` e `09-05` têm a mesma característica e ainda não têm
+`tests-fixed/`. Os walkthroughs deles descrevem o cenário excluído em prosa, que era o
+melhor disponível na época. Vale converter.

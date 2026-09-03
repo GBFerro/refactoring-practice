@@ -21,7 +21,11 @@ const projects: ViteUserConfig[] = solutionsMode
         test: {
           name: `${exercise.meta.id}:${slug}`,
           root: exercise.dir,
-          include: ["tests/**/*.spec.ts"],
+          // `tests-fixed/` runs against solutions only. Some refactorings correct a real
+          // bug, and the shared suite cannot pin the corrected behaviour: the same file
+          // has to stay green against the buggy challenge too. This is where the proof
+          // that the bug is gone lives.
+          include: ["tests/**/*.spec.ts", "tests-fixed/**/*.spec.ts"],
         },
         resolve: {
           alias: { "@exercise": path.join(exercise.dir, "solutions", slug, "index.ts") },

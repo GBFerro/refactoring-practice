@@ -150,6 +150,15 @@ export function validate(): number {
         fail(exercise, `solution "${solution.slug}" has no tradeoff`);
     }
 
+    // An exercise whose refactoring corrects a bug must prove the bug is gone, and the
+    // only place that proof can live is a suite that runs against solutions only.
+    if (meta.fixesBug === true) {
+      requireFile(exercise, "tests-fixed");
+    }
+    if (meta.fixesBug !== true && existsSync(path.join(exercise.dir, "tests-fixed"))) {
+      fail(exercise, "tests-fixed/ exists but meta.fixesBug is not true");
+    }
+
     // --- coverage targets ---------------------------------------------------------
     if (meta.providesTests && meta.coverageTargets) {
       fail(exercise, "coverageTargets only applies when providesTests is false");

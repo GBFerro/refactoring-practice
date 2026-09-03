@@ -67,6 +67,33 @@ is a naming exercise wearing a mechanical costume. Every `WALKTHROUGH.md` says w
 four questions in [`docs/NAMING.md`](./docs/NAMING.md) decided a name and which candidate
 was rejected. `./rp names <id>` catches the vague ones; it cannot catch the untrue ones.
 
+## When the refactoring fixes a bug
+
+Some refactorings do more than reshape code: replacing a hand-maintained total with a
+query, or collapsing an aliased object into a value, *removes a category of bug*. That
+creates a problem for the harness, and three exercises in module 4 hit it independently
+before it had a name.
+
+The shared suite in `tests/` runs against the challenge **and** every solution, so it can
+only pin behaviour the two agree on. The buggy scenario is exactly where they disagree —
+so it cannot go there.
+
+It goes in **`tests-fixed/`**, which runs against solutions only:
+
+```
+exercises/drills/09-organizing-data/03-.../
+├── tests/              # green against src/ and every solution
+└── tests-fixed/        # solutions only - proof the bug is gone
+```
+
+Declare `"fixesBug": true` in `meta.json`; the validator then requires the folder, and
+refuses a `tests-fixed/` that no `meta.json` claims. Open the file with a comment saying
+what the challenge does instead and that it is a spoiler, because it is one.
+
+This is not a way to sneak behaviour changes past the safety net. The refactoring must
+still preserve every behaviour the shared suite pins. `tests-fixed/` is narrower than that:
+it pins the one thing the old code got *wrong*.
+
 ## What counts as a second solution
 
 A different **design decision**, with a nameable cost: polymorphism versus a strategy
