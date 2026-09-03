@@ -24,7 +24,7 @@ npm install
 
 ## Exercises
 
-**Catalog coverage: 26/61 refactorings.**
+**Catalog coverage: 29/61 refactorings.**
 
 ### Chapter 6 — A First Set of Refactorings
 
@@ -58,14 +58,17 @@ npm install
 
 ### Chapter 8 — Moving Features
 
-| Exercise                                                                                                                               | Refactoring                            | Smells           | Level | Min | Lang |
-| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ---------------- | ----- | --- | ---- |
-| [Move Function](./exercises/drills/08-moving-features/01-move-function/README.en.md)                                                   | Move Function                          | Feature Envy     | ●○○   | 20  | 🌐   |
-| [Move Field](./exercises/drills/08-moving-features/02-move-field/README.en.md)                                                         | Move Field                             | Shotgun Surgery  | ●○○   | 20  | 🌐   |
-| [Move Statements into Function](./exercises/drills/08-moving-features/03-move-statements-into-function/README.en.md)                   | Move Statements into Function          | Duplicated Code  | ●●○   | 25  | 🌐   |
-| [Move Statements to Callers](./exercises/drills/08-moving-features/04-move-statements-to-callers/README.en.md)                         | Move Statements to Callers             | Divergent Change | ●●○   | 20  | 🌐   |
-| [Replace Inline Code with Function Call](./exercises/drills/08-moving-features/05-replace-inline-code-with-function-call/README.en.md) | Replace Inline Code with Function Call | Duplicated Code  | ●●○   | 25  | 🌐   |
-| [Replace Loop with Pipeline](./exercises/drills/08-moving-features/08-replace-loop-with-pipeline/README.en.md)                         | Replace Loop with Pipeline             | Loops            | ●●○   | 25  | 🌐   |
+| Exercise                                                                                                                               | Refactoring                            | Smells                 | Level | Min | Lang |
+| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ---------------------- | ----- | --- | ---- |
+| [Move Function](./exercises/drills/08-moving-features/01-move-function/README.en.md)                                                   | Move Function                          | Feature Envy           | ●○○   | 20  | 🌐   |
+| [Move Field](./exercises/drills/08-moving-features/02-move-field/README.en.md)                                                         | Move Field                             | Shotgun Surgery        | ●○○   | 20  | 🌐   |
+| [Move Statements into Function](./exercises/drills/08-moving-features/03-move-statements-into-function/README.en.md)                   | Move Statements into Function          | Duplicated Code        | ●●○   | 25  | 🌐   |
+| [Move Statements to Callers](./exercises/drills/08-moving-features/04-move-statements-to-callers/README.en.md)                         | Move Statements to Callers             | Divergent Change       | ●●○   | 20  | 🌐   |
+| [Replace Inline Code with Function Call](./exercises/drills/08-moving-features/05-replace-inline-code-with-function-call/README.en.md) | Replace Inline Code with Function Call | Duplicated Code        | ●●○   | 25  | 🌐   |
+| [Slide Statements](./exercises/drills/08-moving-features/06-slide-statements/README.en.md)                                             | Slide Statements                       | Long Function          | ●○○   | 20  | 🌐   |
+| [Split Loop](./exercises/drills/08-moving-features/07-split-loop/README.en.md)                                                         | Split Loop                             | Loops                  | ●○○   | 15  | 🌐   |
+| [Replace Loop with Pipeline](./exercises/drills/08-moving-features/08-replace-loop-with-pipeline/README.en.md)                         | Replace Loop with Pipeline             | Loops                  | ●●○   | 25  | 🌐   |
+| [Remove Dead Code](./exercises/drills/08-moving-features/09-remove-dead-code/README.en.md)                                             | Remove Dead Code                       | Speculative Generality | ●●○   | 30  | 🌐   |
 
 ### Chapter 9 — Organizing Data
 

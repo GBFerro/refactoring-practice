@@ -1,0 +1,28 @@
+{
+  "id": "drill-08-07",
+  "title": "Split Loop",
+  "type": "drill",
+  "chapter": 8,
+  "refactorings": ["Split Loop"],
+  "smells": ["Loops"],
+  "difficulty": 1,
+  "estimatedMinutes": 15,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "split-loop",
+      "title": "Two loops, one for each total",
+      "tradeoff": "A second pass over the same array of orders, and two named sums to maintain instead of one loop - a cost worth paying the moment either total needs to change, be tested, or be read on its own for a reason the other one doesn't share."
+    }
+  ],
+  "reviewFocus": [
+    "Does each of the two loops read exactly one field off `order` - `totalCents` in one, `flourGrams` in the other - or did stripping the duplicated loop leave a stray reference to the wrong one?",
+    "Is `dayTotals` now a two-line composition of two single-purpose sums, or did the split stop halfway with one loop still doing both jobs under the other's name?",
+    "Do the two sums stay independent when an order contributes to only one of them - revenue with no flour, or flour with no revenue?",
+    "If a reviewer objects that this is now two passes over `orders` instead of one, is there an honest answer on hand, or just a shrug?",
+    "Would extracting `revenueCents` and `flourGramsUsed` further into `.reduce()` calls actually help here, or is that a different day's refactoring?"
+  ]
+}

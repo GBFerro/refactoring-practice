@@ -1,0 +1,28 @@
+{
+  "id": "drill-08-06",
+  "title": "Slide Statements",
+  "type": "drill",
+  "chapter": 8,
+  "refactorings": ["Slide Statements"],
+  "smells": ["Long Function"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "slide-statements",
+      "title": "Bake-quantity math, gathered next to the order it starts from",
+      "tradeoff": "The shelf-tag lines and the bake-quantity lines are now two visible blocks instead of one braided sequence, so a reader who liked seeing 'everything about this item' in strict top-to-bottom order has to accept two paragraphs instead of one."
+    }
+  ],
+  "reviewFocus": [
+    "Is standingUnits still separated from bufferUnits by any statement that does not read or write it? If so the slide is incomplete, not just imperfect.",
+    "Does bakeUnitsFor read or write shelfTag, displayName, or aisleCode anywhere - directly or through a shared parameter? If it doesn't, the slide was safe by the same test a reviewer should apply.",
+    "Was ovenBatchesUsed's running total replaced with a query over the lines, or does src/'s accumulator survive into the solution for no reason?",
+    "Does the walkthrough's before/after pair actually match the diff, or does it show a tidier version of the move than what the commits record?",
+    "Would you have sunk bakeUnitsFor into its own file instead of leaving it beside buildDailyBakePlan? Is there a real cost to either choice here, or is it a coin toss this drill shouldn't pretend is a decision?"
+  ]
+}

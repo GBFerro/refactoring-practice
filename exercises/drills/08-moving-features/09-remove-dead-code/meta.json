@@ -1,0 +1,28 @@
+{
+  "id": "drill-08-09",
+  "title": "Remove Dead Code",
+  "type": "drill",
+  "chapter": 8,
+  "refactorings": ["Remove Dead Code"],
+  "smells": ["Speculative Generality"],
+  "difficulty": 2,
+  "estimatedMinutes": 30,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "remove-dead-code",
+      "title": "Three branches deleted, one left alone",
+      "tradeoff": "Two of the three deleted branches carried named constants (WELCOME_CAFE_DISCOUNT, HARVEST_FAIR_2019_DISCOUNT_CENTS) a future one-off promo of the same shape could have reused instead of reinventing; deleting them trades that speculative reuse for a file where every line still standing has a real caller. And effectivePromoCode's tenure fallback is now the only thing standing between a plain string comparison and looking exactly like the siblings that got deleted around it - the next reader who doesn't redo this proof is one confident git-blame away from breaking it."
+    }
+  ],
+  "reviewFocus": [
+    "Does promoDiscountCents still contain a branch for a code you cannot find constructed anywhere in src/ or tests/? If a reviewer can find one, the deletion pass was incomplete.",
+    "Is sampleCrateWaiver gone entirely - the function and its call - or did only the promoDiscountCents branch that called it get deleted, leaving an unreferenced helper behind?",
+    "Does effectivePromoCode's yearsActive >= FOUNDING_ACCOUNT_YEARS fallback still exist, and does at least one test construct a long-standing customer without an explicit promoCode to prove it stays reachable? Deleting that fallback is the one mistake this drill exists to catch.",
+    "Would a reviewer new to this file, reading only promoDiscountCents, be able to tell FOUNDER-RATE is reachable? If the answer is 'only by reading effectivePromoCode next to it', is that seam carrying enough of the story on its own now that its dead siblings no longer surround it for context?",
+    "Compare this exercise's closed set of files, where every caller is enumerable, against a codebase where promoCode arrived through a public API - would 'no caller found' still be sufficient evidence there, or does removing dead code from a library need a different kind of proof?"
+  ]
+}

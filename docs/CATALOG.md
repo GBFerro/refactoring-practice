@@ -4,7 +4,7 @@
 
 Every refactoring in the second edition, and the exercise that drills it.
 
-**26/61 covered.**
+**29/61 covered.**
 
 | Refactoring                                   |   | Exercise                                                                                                                                |
 | --------------------------------------------- | - | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -33,10 +33,10 @@ Every refactoring in the second edition, and the exercise that drills it.
 | Move Statements into Function                 | ✅ | [Move Statements into Function](../exercises/drills/08-moving-features/03-move-statements-into-function/README.en.md)                   |
 | Move Statements to Callers                    | ✅ | [Move Statements to Callers](../exercises/drills/08-moving-features/04-move-statements-to-callers/README.en.md)                         |
 | Replace Inline Code with Function Call        | ✅ | [Replace Inline Code with Function Call](../exercises/drills/08-moving-features/05-replace-inline-code-with-function-call/README.en.md) |
-| Slide Statements                              | ⬜ | —                                                                                                                                       |
-| Split Loop                                    | ⬜ | —                                                                                                                                       |
+| Slide Statements                              | ✅ | [Slide Statements](../exercises/drills/08-moving-features/06-slide-statements/README.en.md)                                             |
+| Split Loop                                    | ✅ | [Split Loop](../exercises/drills/08-moving-features/07-split-loop/README.en.md)                                                         |
 | Replace Loop with Pipeline                    | ✅ | [Replace Loop with Pipeline](../exercises/drills/08-moving-features/08-replace-loop-with-pipeline/README.en.md)                         |
-| Remove Dead Code                              | ⬜ | —                                                                                                                                       |
+| Remove Dead Code                              | ✅ | [Remove Dead Code](../exercises/drills/08-moving-features/09-remove-dead-code/README.en.md)                                             |
 | Split Variable                                | ⬜ | —                                                                                                                                       |
 | Rename Field                                  | ⬜ | —                                                                                                                                       |
 | Replace Derived Variable with Query           | ⬜ | —                                                                                                                                       |
