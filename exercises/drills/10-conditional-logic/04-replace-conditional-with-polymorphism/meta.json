@@ -1,0 +1,28 @@
+{
+  "id": "drill-10-04",
+  "title": "Replace Conditional with Polymorphism",
+  "type": "drill",
+  "chapter": 10,
+  "refactorings": ["Replace Conditional with Polymorphism"],
+  "smells": ["Repeated Switches"],
+  "difficulty": 3,
+  "estimatedMinutes": 45,
+  "prerequisites": ["drill-06-01", "drill-10-03"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "replace-conditional-with-polymorphism",
+      "title": "One class per appointment type, one switch left at the factory",
+      "tradeoff": "Three switch statements collapse into three small classes and a single factory switch, so knowing everything a checkup does now takes one file instead of three rows, but knowing everything about duration takes three files instead of one column - worth it only because the switch was genuinely repeated three times, and it would be over-engineering for one."
+    }
+  ],
+  "reviewFocus": [
+    "Is there genuinely one switch left in the whole solution - the one inside createAppointment - or did a second one sneak back in inside a class method?",
+    "Does the walkthrough admit plainly that adding a fourth appointment type means touching every class file, rather than presenting polymorphism as a free win?",
+    "Would a lookup table of plain data have done this with less code, and does the walkthrough take an honest position on when that table would have been the better answer?",
+    "Do the three appointment classes share any logic that should have stayed a shared helper instead of being copied into each class?",
+    "Is createAppointment exhaustive without a default case, and does removing a case from AppointmentType actually fail the build the way the walkthrough claims - or is that asserted without being checked?"
+  ]
+}

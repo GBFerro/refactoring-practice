@@ -21,7 +21,8 @@ import {
  * exact combination is where the challenge's copied-per-trip details and the solution's
  * shared rider record disagree - see WALKTHROUGH.md. A test that asserted a value there
  * could only pass against one of src/ or the solution, never both, so it cannot live in a
- * suite that has to grade both.
+ * suite that has to grade both. The proof that the solution gets it right lives in
+ * `tests-fixed/`, which runs against solutions only.
  */
 
 describe("bookTrip", () => {

@@ -1,0 +1,28 @@
+{
+  "id": "drill-10-01",
+  "title": "Decompose Conditional",
+  "type": "drill",
+  "chapter": 10,
+  "refactorings": ["Decompose Conditional"],
+  "smells": ["Mysterious Name"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": ["drill-06-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "decompose-conditional",
+      "title": "One name each for the question and the two answers",
+      "tradeoff": "Three small functions replace one compact if/else, so a reader who wants the whole rule at a glance now reads three names and trusts them instead of scanning six lines - worth it here because the six lines were never actually readable to begin with."
+    }
+  ],
+  "reviewFocus": [
+    "Does isOutOfHours read as a question you could answer yes or no to, without opening it?",
+    "Were both branches extracted, or only the more interesting one - and if only one, is the other genuinely too small to earn a name?",
+    "Do the two charge functions still share the CLINIC_OPENS_MINUTE / CLINIC_CLOSES_MINUTE constants, or did a magic number creep back in during extraction?",
+    "Is Math.round applied exactly once, on the result, rather than inside each branch?",
+    "Would a reviewer who has never seen this file understand what out-of-hours means for Fernbank Clinic from the names alone, without reading a single body?"
+  ]
+}

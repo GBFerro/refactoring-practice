@@ -24,5 +24,6 @@
     "Is Fare.cents actually declared readonly, or is immutability only a convention nothing enforces?",
     "Read the comment above the aliasing guard test in tests/fare.spec.ts and the one explaining what is deliberately absent - do both still hold, or did a later step quietly make one of them false?",
     "Compare against drill-09-05: does this solution's Fare earn value semantics by being small and safe to duplicate freely - the opposite of drill-09-05's Rider, which needs exactly one owner?"
-  ]
+  ],
+  "fixesBug": true
 }

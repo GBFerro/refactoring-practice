@@ -1,0 +1,28 @@
+{
+  "id": "drill-10-03",
+  "title": "Replace Nested Conditional with Guard Clauses",
+  "type": "drill",
+  "chapter": 10,
+  "refactorings": ["Replace Nested Conditional with Guard Clauses"],
+  "smells": ["Long Function"],
+  "difficulty": 2,
+  "estimatedMinutes": 25,
+  "prerequisites": ["drill-06-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "replace-nested-conditional-with-guard-clauses",
+      "title": "Three flat exits, one decision left standing",
+      "tradeoff": "Three preconditions become three early returns at the top of the function, so a reader now has to track every return statement instead of trusting there is exactly one at the bottom - a fair trade for a happy path that is no longer four levels deep, and it only stays fair because there are few enough guards to hold in your head at once."
+    }
+  ],
+  "reviewFocus": [
+    "Did the salaried/hourly if/else survive as an if/else, or did it get flattened into a fourth guard clause along with the three preconditions?",
+    "Are the three guards still active, then completed, then payoutIssued - and does reordering them change which zero-payout reason a caller would see for a shift that fails more than one?",
+    "Does hourlyPayoutCents still take the unrounded per-minute rate and round once at the end, or did rounding creep into an intermediate step and start compounding?",
+    "Could a reviewer tell, from the shape of the code alone, that staff.active and shift.payoutIssued are exits while employmentType is a decision - without reading what each condition means?",
+    "Compare against src/: is nesting genuinely at depth 1 for every guard, or did one guard end up nested inside another on the way out?"
+  ]
+}

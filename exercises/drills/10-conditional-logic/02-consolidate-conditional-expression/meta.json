@@ -1,0 +1,28 @@
+{
+  "id": "drill-10-02",
+  "title": "Consolidate Conditional Expression",
+  "type": "drill",
+  "chapter": 10,
+  "refactorings": ["Consolidate Conditional Expression"],
+  "smells": ["Duplicated Code"],
+  "difficulty": 2,
+  "estimatedMinutes": 25,
+  "prerequisites": ["drill-10-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "consolidate-conditional-expression",
+      "title": "One name for the three that agree, one guard for the one that doesn't",
+      "tradeoff": "isPriorityCase reads as a single rule instead of three, but isEligibleForSameDaySlot now has to say out loud that a fourth condition is deliberately excluded from it - a reader who only skims isPriorityCase and assumes it is the whole story will miss the paging."
+    }
+  ],
+  "reviewFocus": [
+    "Do the three merged conditions actually share one consequence and no side effects, or did a fourth get folded in by pattern-matching on shape alone?",
+    "Is pageOnCallNurseIfFlagged still called unconditionally, or did it end up inside the || chain where short-circuiting could skip it?",
+    "Does the OnCallLog assertion in the tests actually distinguish the correct solution from a naive isPriorityCase(patient) || pageOnCallNurseIfFlagged(patient, log) merge?",
+    "Is isPriorityCase named for what it answers, or does it just restate 'the three conditions that got merged'?",
+    "Would a reviewer, reading only isEligibleForSameDaySlot, know that a nurse gets paged as a side effect of calling it?"
+  ]
+}

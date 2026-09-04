@@ -24,5 +24,6 @@
     "Read the comment naming what tests/rider-trips.spec.ts deliberately does not assert - does it still hold, or did a later step quietly make it false?",
     "Is Rider still exported with mutable name/phone/email fields, or did the refactor accidentally make it a readonly value - which would be drill-09-04's answer to the wrong problem?",
     "Compare against drill-09-04: does this solution's Rider earn reference semantics by needing exactly one owner that updates are visible through - the opposite of drill-09-04's Fare, which is safe to duplicate freely?"
-  ]
+  ],
+  "fixesBug": true
 }

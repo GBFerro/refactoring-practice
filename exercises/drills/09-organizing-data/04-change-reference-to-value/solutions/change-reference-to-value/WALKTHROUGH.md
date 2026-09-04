@@ -42,6 +42,25 @@ changes too - not because anything touched `inbound`, but because `outbound.fare
 that looks owned by one variable is actually shared, and a change through either name is
 visible through both.
 
+Run this against `src/` yourself before you refactor anything:
+
+```ts
+const { outbound, inbound } = bookRoundTrip("T1", "T2", {
+  outboundStationId: "A",
+  returnStationId: "B",
+  cents: 300,
+});
+adjustTripFare(outbound, 100);
+
+outbound.fare.cents;                                          // 400 - correct, on its own
+inbound.fare.cents;                                            // 400 - wrong, never touched
+```
+
+The right answer for `inbound.fare.cents` is `300` - nothing about the inbound leg's fare
+was supposed to change. `400` is what `src/` actually returns, on code that passes every
+test this exercise ships. That disagreement is real, and it is the entire reason this
+drill exists.
+
 ## Why this order: fix the mutator before touching the sharing
 
 It would be tempting to "fix" `bookRoundTrip` first - give each leg its own `Fare`
@@ -189,6 +208,21 @@ aliasing where none exists today - but it is not, and cannot be, a test that the
 `bookRoundTrip` aliasing bug itself is fixed. That fix is real, and it's visible by reading
 `adjustTripFare`'s one-line diff at step 2; it is simply not the kind of thing an automated
 suite shared between the buggy and fixed versions can assert.
+
+That is no longer the end of the story. The exact scenario worked by hand above - book a
+round trip, adjust one leg, read the other - is pinned in
+[`tests-fixed/no-aliased-fare.spec.ts`](../../tests-fixed/no-aliased-fare.spec.ts), which
+`vitest.config.ts` includes only for solution runs, never for the challenge. The numbers
+that prove both halves:
+
+```
+npx vitest run --project drill-09-04                                        # 8 passed
+SOLUTIONS=1 npx vitest run --project "drill-09-04:change-reference-to-value" # 10 passed
+```
+
+Eight tests hold against both versions; the two extra, solutions-only tests are the ones
+that would fail against `src/` - which is exactly the coverage `tests/fare.spec.ts` could
+never provide on its own.
 
 ## What this refactoring actually buys you
 

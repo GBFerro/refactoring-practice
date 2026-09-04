@@ -24,7 +24,7 @@ npm install
 
 ## Exercises
 
-**Cobertura do catálogo: 34/61 refactorings.**
+**Cobertura do catálogo: 40/61 refactorings.**
 
 ### Chapter 6 — A First Set of Refactorings
 
@@ -82,7 +82,14 @@ npm install
 
 ### Chapter 10 — Simplifying Conditional Logic
 
-_Nenhum exercício neste módulo ainda._
+| Exercício                                                                                                                                              | Refactoring                                   | Smells              | Nível | Min | Idioma |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- | ------------------- | ----- | --- | ------ |
+| [Decompose Conditional](./exercises/drills/10-conditional-logic/01-decompose-conditional/README.en.md)                                                 | Decompose Conditional                         | Mysterious Name     | ●○○   | 20  | 🌐     |
+| [Consolidate Conditional Expression](./exercises/drills/10-conditional-logic/02-consolidate-conditional-expression/README.en.md)                       | Consolidate Conditional Expression            | Duplicated Code     | ●●○   | 25  | 🌐     |
+| [Replace Nested Conditional with Guard Clauses](./exercises/drills/10-conditional-logic/03-replace-nested-conditional-with-guard-clauses/README.en.md) | Replace Nested Conditional with Guard Clauses | Long Function       | ●●○   | 25  | 🌐     |
+| [Replace Conditional with Polymorphism](./exercises/drills/10-conditional-logic/04-replace-conditional-with-polymorphism/README.en.md)                 | Replace Conditional with Polymorphism         | Repeated Switches   | ●●●   | 45  | 🌐     |
+| [Introduce Special Case](./exercises/drills/10-conditional-logic/05-introduce-special-case/README.en.md)                                               | Introduce Special Case                        | Repeated Switches   | ●●○   | 25  | 🌐     |
+| [Introduce Assertion](./exercises/drills/10-conditional-logic/06-introduce-assertion/README.en.md)                                                     | Introduce Assertion                           | Primitive Obsession | ●●○   | 20  | 🌐     |
 
 ### Chapter 11 — Refactoring APIs
 

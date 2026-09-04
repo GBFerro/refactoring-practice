@@ -30,6 +30,24 @@ function snapshotRider(rider: Rider): Rider {
 }
 ```
 
+Run this against `src/` yourself before you refactor anything:
+
+```ts
+const directory = openDirectory();
+registerRider(directory, { id: "RIDER-1", name: "Priya Shah", phone: "555-0100", email: "..." });
+const trip = bookTrip(directory, "TRIP-1", { riderId: "RIDER-1", fromStationId: "A", toStationId: "B" });
+
+correctRiderPhone(directory, "RIDER-1", "555-0199");
+
+trip.rider.phone;                                              // "555-0100" - stale
+findRider(directory, "RIDER-1")?.phone;                        // "555-0199" - the real number
+```
+
+Those two numbers disagree, on code that passes every test this exercise ships. The
+directory knows Priya's number changed; the trip she already booked does not, and never
+will, because `trip.rider` was never the directory's record to begin with. That
+disagreement is real, and it is the entire reason this drill exists.
+
 This is **Shotgun Surgery**, and it's worth being precise about which half of the smell
 lives where. The book's usual picture is a single conceptual change scattered across many
 *functions*. Here it's scattered across many *records*: correcting one rider's phone number
@@ -152,6 +170,21 @@ rider's trip (works in both, since different `id`s never alias regardless of ver
 of those is a real regression guard. None of them, individually or together, can prove that
 an *already-booked* trip sees a later correction - that specific claim is the one thing
 `src/` gets wrong, and it is exactly the one claim a shared suite cannot pin to one number.
+
+That claim is no longer untestable, only unshareable. The exact scenario worked by hand
+above - register, book, correct, then re-read the *same* trip - is pinned in
+[`tests-fixed/no-stale-trip-contact.spec.ts`](../../tests-fixed/no-stale-trip-contact.spec.ts),
+which `vitest.config.ts` includes only for solution runs, never for the challenge. The
+numbers that prove both halves:
+
+```
+npx vitest run --project drill-09-05                                          # 7 passed
+SOLUTIONS=1 npx vitest run --project "drill-09-05:change-value-to-reference"  # 9 passed
+```
+
+Seven tests hold against both versions; the two extra, solutions-only tests are the ones
+that would fail against `src/` - exactly the coverage `tests/rider-trips.spec.ts` could
+never provide on its own.
 
 ## What it cost
 

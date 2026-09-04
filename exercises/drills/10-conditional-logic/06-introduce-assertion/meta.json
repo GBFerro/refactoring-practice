@@ -1,0 +1,28 @@
+{
+  "id": "drill-10-06",
+  "title": "Introduce Assertion",
+  "type": "drill",
+  "chapter": 10,
+  "refactorings": ["Introduce Assertion"],
+  "smells": ["Primitive Obsession"],
+  "difficulty": 2,
+  "estimatedMinutes": 20,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "introduce-assertion",
+      "title": "The concentration assumption, stated and enforced",
+      "tradeoff": "volumeMl grows a line that can only ever throw for data no clinician's input could produce - dead weight in every ordinary run, and the entire value of the exercise: the one run where a formulary entry is wrong now fails loudly at the call that exposed it instead of returning a silently unusable number."
+    }
+  ],
+  "reviewFocus": [
+    "Does the new assert sit on the formulary's concentration, or did it drift onto weightKg - the value a nurse actually types in? Asserting on user input is the trap this drill is built around.",
+    "Is checkedWeightKg's validation untouched by this refactoring - same thrown Error, same message shape, in both src/ and the solution? Introduce Assertion should not have touched it at all.",
+    "Does the walkthrough state, in so many words, what happens to the assertion in a production build, and why that rules out putting checkedWeightKg's check behind the same helper?",
+    "Would a reader be able to tell, from the assertion message alone, which programmer's mistake it is - the person who edits the formulary, not the clinician entering a weight?",
+    "Is there a test anywhere that constructs a formulary entry with a non-positive concentration just to watch the assertion fire? There shouldn't be - see WALKTHROUGH.md for why that absence is deliberate, not a gap."
+  ]
+}

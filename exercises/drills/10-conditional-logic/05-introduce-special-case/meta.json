@@ -1,0 +1,29 @@
+{
+  "id": "drill-10-05",
+  "title": "Introduce Special Case",
+  "type": "drill",
+  "chapter": 10,
+  "refactorings": ["Introduce Special Case"],
+  "smells": ["Repeated Switches"],
+  "difficulty": 2,
+  "estimatedMinutes": 25,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "introduce-special-case",
+      "title": "One patient record that already knows how to answer",
+      "tradeoff": "Every board function shrinks to a one-line field read, but the two factories that build a Patient now carry the weight those nine checks used to share - a real cost when a tenth board line is added later and has to be taught to both factories instead of appended to a nine-item list."
+    }
+  ],
+  "reviewFocus": [
+    "Count the id === \"unknown\" (or similarly-shaped) comparisons left anywhere in the solution's src-facing functions. It should be zero - every one of the nine has to move into a factory, not just be tidied in place.",
+    "Does isBillable in src/ actually disagree with the solution for an unidentified patient? If a stray fix crept in while un-refactoring, the whole reason tests-fixed/ exists disappears and the exercise stops proving anything.",
+    "Does tests/ ever call isBillable(unknownPatient()) directly? It must not - that is the one call the shared suite cannot pin, and it belongs only in tests-fixed/.",
+    "Is UNKNOWN_PATIENT (or its equivalent) a single shared value, or does something rebuild an equivalent object on every call? A fresh object every time isn't wrong, but the walkthrough should say which was chosen and why.",
+    "Registered patients with no insurance on file and the unidentified patient both start from a null-ish signal - does the solution still tell 'self-pay' and 'not yet identified' apart, or did the special case collapse them into one label?"
+  ],
+  "fixesBug": true
+}

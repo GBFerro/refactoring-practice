@@ -14,7 +14,9 @@ import { Fare, adjustTripFare, bookRoundTrip, bookTrip } from "@exercise";
  * fare before reading the other leg's. That exact combination is where the challenge's one
  * shared Fare instance and the solution's independently-corrected legs disagree - see
  * WALKTHROUGH.md. A test that asserted a value there could only pass against one of src/
- * or the solution, never both, so it cannot live in a suite that has to grade both.
+ * or the solution, never both, so it cannot live in a suite that has to grade both. The
+ * proof that the solution gets it right lives in `tests-fixed/`, which runs against
+ * solutions only.
  */
 
 describe("bookTrip", () => {
