@@ -4,7 +4,7 @@
 
 Every refactoring in the second edition, and the exercise that drills it.
 
-**40/61 covered.**
+**42/61 covered.**
 
 | Refactoring                                   |   | Exercise                                                                                                                                                |
 | --------------------------------------------- | - | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -48,8 +48,8 @@ Every refactoring in the second edition, and the exercise that drills it.
 | Replace Conditional with Polymorphism         | ✅ | [Replace Conditional with Polymorphism](../exercises/drills/10-conditional-logic/04-replace-conditional-with-polymorphism/README.en.md)                 |
 | Introduce Special Case                        | ✅ | [Introduce Special Case](../exercises/drills/10-conditional-logic/05-introduce-special-case/README.en.md)                                               |
 | Introduce Assertion                           | ✅ | [Introduce Assertion](../exercises/drills/10-conditional-logic/06-introduce-assertion/README.en.md)                                                     |
-| Separate Query from Modifier                  | ⬜ | —                                                                                                                                                       |
-| Parameterize Function                         | ⬜ | —                                                                                                                                                       |
+| Separate Query from Modifier                  | ✅ | [Separate Query from Modifier](../exercises/drills/11-apis/01-separate-query-from-modifier/README.en.md)                                                |
+| Parameterize Function                         | ✅ | [Parameterize Function](../exercises/drills/11-apis/02-parameterize-function/README.en.md)                                                              |
 | Remove Flag Argument                          | ⬜ | —                                                                                                                                                       |
 | Preserve Whole Object                         | ⬜ | —                                                                                                                                                       |
 | Replace Parameter with Query                  | ⬜ | —                                                                                                                                                       |

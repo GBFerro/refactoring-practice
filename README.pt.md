@@ -24,7 +24,7 @@ npm install
 
 ## Exercises
 
-**Cobertura do catálogo: 40/61 refactorings.**
+**Cobertura do catálogo: 42/61 refactorings.**
 
 ### Chapter 6 — A First Set of Refactorings
 
@@ -93,7 +93,10 @@ npm install
 
 ### Chapter 11 — Refactoring APIs
 
-_Nenhum exercício neste módulo ainda._
+| Exercício                                                                                               | Refactoring                  | Smells          | Nível | Min | Idioma |
+| ------------------------------------------------------------------------------------------------------- | ---------------------------- | --------------- | ----- | --- | ------ |
+| [Separate Query from Modifier](./exercises/drills/11-apis/01-separate-query-from-modifier/README.en.md) | Separate Query from Modifier | Mysterious Name | ●●○   | 30  | 🌐     |
+| [Parameterize Function](./exercises/drills/11-apis/02-parameterize-function/README.en.md)               | Parameterize Function        | Duplicated Code | ●●○   | 30  | 🌐     |
 
 ### Chapter 12 — Dealing with Inheritance
 

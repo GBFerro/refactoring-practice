@@ -1,0 +1,29 @@
+{
+  "id": "drill-11-01",
+  "title": "Separate Query from Modifier",
+  "type": "drill",
+  "chapter": 11,
+  "refactorings": ["Separate Query from Modifier"],
+  "smells": ["Mysterious Name"],
+  "difficulty": 2,
+  "estimatedMinutes": 30,
+  "prerequisites": ["drill-06-05"],
+  "apiFrozen": false,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "separate-query-from-modifier",
+      "title": "A pure lookup plus an explicit hold",
+      "tradeoff": "Two calls where there was one, and the caller that genuinely always wants both now has to make that sequence itself instead of getting it for free - which is also the one place a real concurrent box office would need the two calls to be atomic again, at the datastore rather than in this module."
+    }
+  ],
+  "reviewFocus": [
+    "Does `nextAvailableSeat` still read cleanly as a question - no branch in it ever assigns to a seat's `status` or `heldBy`?",
+    "Did `nextSeatQuote` and `sectionHasAvailability` stop passing a placeholder customer id once they moved onto the query? A caller still inventing an id like \"quote\" is the tell that the split isn't finished.",
+    "Is `holdNextAvailableSeat` still one function, or did the split leak into forcing every caller to call the query and the modifier separately even when a caller genuinely wants both?",
+    "Does `tests-fixed/` prove the one thing that changed - that quoting or checking availability no longer holds a seat - without also depending on anything `tests/` already pins?",
+    "Does the walkthrough name the case where this split is the wrong move - a query-and-modify pair that has to stay atomic - and say what makes this one different from that case?"
+  ],
+  "fixesBug": true
+}

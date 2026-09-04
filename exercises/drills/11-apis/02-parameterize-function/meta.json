@@ -1,0 +1,28 @@
+{
+  "id": "drill-11-02",
+  "title": "Parameterize Function",
+  "type": "drill",
+  "chapter": 11,
+  "refactorings": ["Parameterize Function"],
+  "smells": ["Duplicated Code"],
+  "difficulty": 2,
+  "estimatedMinutes": 30,
+  "prerequisites": ["drill-06-05"],
+  "apiFrozen": false,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "parameterize-function",
+      "title": "One rise, a lookup table for the tier",
+      "tradeoff": "The three tier amounts move from three type-checked function names into one untyped-at-the-call-site number, so a caller that gets the wrong literal now fails at runtime (a wrong test assertion) instead of failing to compile."
+    }
+  ],
+  "reviewFocus": [
+    "Was `raiseRestrictedViewBand` folded into the merged function, or does it still stand apart? Folding it erases the price cap the venue's letting agreement requires - that is the exercise, not an edge case of it.",
+    "Is the merged function's parameter named `amount` or `value` anywhere, even as an intermediate step that got left in? Neither reads at a call site.",
+    "Does the parameter name carry the unit, the way `paceSecondsPerKm` does in the naming conventions table - or does it only carry the direction (a rise) and leave the unit implicit?",
+    "Did `raiseByFive`, `raiseByTen`, and `raiseByTwenty` disappear entirely, or does one of them survive somewhere as a thin wrapper nobody calls?",
+    "Does the walkthrough show a rejected name for the merged function itself, not only for its parameter?"
+  ]
+}
