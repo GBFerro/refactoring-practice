@@ -1,0 +1,28 @@
+{
+  "id": "drill-11-05",
+  "title": "Replace Parameter with Query",
+  "type": "drill",
+  "chapter": 11,
+  "refactorings": ["Replace Parameter with Query"],
+  "smells": ["Long Parameter List"],
+  "difficulty": 2,
+  "estimatedMinutes": 25,
+  "prerequisites": ["drill-06-05"],
+  "apiFrozen": false,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "replace-parameter-with-query",
+      "title": "One Date in, no day-count ceremony",
+      "tradeoff": "refundAmountCents now owns the formula that turns a booking and a moment into a day count, so a caller that once had a legitimate reason to pass a different day count than the calendar gives - a goodwill exception, a test pinning an exact boundary - has no parameter left to do it with, and pinning a boundary in a test now means building real Date arithmetic instead of writing the integer 14."
+    }
+  ],
+  "reviewFocus": [
+    "Does `refundAmountCents` still take a raw `daysUntilShow: number`, or does every call site now hand it the two things it can compute that number from - the booking and the moment of cancellation?",
+    "Is `daysBetween` still exported from `refund.ts`, or has it become a private helper now that no caller outside the module needs the day count directly?",
+    "Do all three callers in `callers.ts` compute `daysUntilShow` themselves before calling the refund function, or did the split leave one caller doing it the old way?",
+    "Does the walkthrough name the real cost - that a caller can no longer hand the function a day count that disagrees with the calendar - rather than presenting this direction as strictly better than drill-11-06's?",
+    "Cross-reference drill-11-06: does this walkthrough's argument for pulling the query inside actually contradict 11-06's argument for pushing a query out to a parameter, or are they answering different questions about who owns the dependency?"
+  ]
+}

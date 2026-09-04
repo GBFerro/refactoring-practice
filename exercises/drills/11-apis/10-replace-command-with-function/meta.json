@@ -1,0 +1,28 @@
+{
+  "id": "drill-11-10",
+  "title": "Replace Command with Function",
+  "type": "drill",
+  "chapter": 11,
+  "refactorings": ["Replace Command with Function"],
+  "smells": ["Lazy Element"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": ["drill-11-09"],
+  "apiFrozen": false,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "replace-command-with-function",
+      "title": "One function, no ceremony",
+      "tradeoff": "calculateHandlingFee can no longer keep a partial calculation alive between two calls the way an unexecuted command object could - not that anything in this module ever did, which is the whole point."
+    }
+  ],
+  "reviewFocus": [
+    "Count CalculateHandlingFeeCommand's fields against its constructor parameters. If every field is just a stored constructor argument, does the walkthrough say so plainly, or does it hedge?",
+    "Does calculateHandlingFee still take the same single Order parameter the command's constructor took, or did the refactoring quietly change what a caller has to supply?",
+    "Do handlingFeeFor, formatFeeLine and totalWithFee still exist under the same names with the same behaviour, now calling a function instead of instantiating and executing a command?",
+    "Does the walkthrough admit that handlingFeeFor is now a one-line pass-through itself - and say why it stays rather than getting inlined away?",
+    "Compare against drill-11-09: does this walkthrough's reasoning for collapsing the class actually contradict 11-09's reasoning for building one, or are they applying the same test to a case that fails it?"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "drill-11-06",
+  "title": "Replace Query with Parameter",
+  "type": "drill",
+  "chapter": 11,
+  "refactorings": ["Replace Query with Parameter"],
+  "smells": ["Global Data"],
+  "difficulty": 2,
+  "estimatedMinutes": 30,
+  "prerequisites": ["drill-11-05"],
+  "apiFrozen": false,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "replace-query-with-parameter",
+      "title": "A reserve count every caller states, not sets",
+      "tradeoff": "Every one of the three callers now has to know the reserve count it wants and say so, instead of leaving `sectionHasAvailability` to look it up - and a fourth caller with no opinion on the reserve has to invent one, where before it could call the function and get the box office's current answer for free."
+    }
+  ],
+  "reviewFocus": [
+    "Does `sectionHasAvailability` still read `reservedSeatCount` from module scope in any branch, or does every path to that number now come in as a parameter?",
+    "Is `setReservedSeatCount` gone from `availability.ts`, or does it still exist as dead code nobody calls?",
+    "Does `sectionAvailabilitySummary` compute both answers without mutating any shared state between the two calls, or does it still set-call-set-call the way the challenge does?",
+    "Does the walkthrough name the case where reaching into shared state is the right call - and say what makes this module's staff/public split different from that case - rather than treating a parameter as strictly better than a global?",
+    "Cross-reference drill-11-05: does this walkthrough's argument for pushing the reserve count out to every caller actually contradict 11-05's argument for pulling a query inside, or are they the same question about dependency ownership answered oppositely for a good reason?"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "drill-11-03",
+  "title": "Remove Flag Argument",
+  "type": "drill",
+  "chapter": 11,
+  "refactorings": ["Remove Flag Argument"],
+  "smells": ["Mysterious Name"],
+  "difficulty": 2,
+  "estimatedMinutes": 30,
+  "prerequisites": ["drill-06-05"],
+  "apiFrozen": false,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "remove-flag-argument",
+      "title": "Two named functions, one pushed-up conditional",
+      "tradeoff": "Two names to keep straight instead of one, and the one caller whose priority decision is genuinely dynamic now carries an explicit branch that the old function used to compute and hide inside a boolean."
+    }
+  ],
+  "reviewFocus": [
+    "Does `bookAtCounter` still call something that takes a boolean, or does it call `bookPriority` directly? A caller still passing a literal through a renamed flag parameter hasn't finished the move.",
+    "Is the difference between `bookPriority` and `bookStandard` a difference in *behavior* (throw vs. waitlist) or only a difference in the *value* written to `status`? If it were only a value, two functions would be the wrong answer - check the walkthrough's reasoning against the actual code, not just its conclusion.",
+    "Does `bookByPhone` still pass a computed boolean into a shared function, or does it call `bookPriority`/`bookStandard` directly from an `if` it owns? The whole point of this caller is that the condition belongs at the call site now.",
+    "Is there a third or fourth fulfillment path lurking that would have made a named type the better call from the start? If not, does the walkthrough say why not, in terms of the actual branches, or does it just assert two functions and move on?",
+    "Does `GROUP_PRIORITY_THRESHOLD` live in the file that needs it, or did it leak into the module that defines `bookPriority`/`bookStandard`, which have no business knowing why a caller picks one of them?"
+  ]
+}

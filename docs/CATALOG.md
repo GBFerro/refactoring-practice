@@ -4,7 +4,7 @@
 
 Every refactoring in the second edition, and the exercise that drills it.
 
-**42/61 covered.**
+**50/61 covered.**
 
 | Refactoring                                   |   | Exercise                                                                                                                                                |
 | --------------------------------------------- | - | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -50,14 +50,14 @@ Every refactoring in the second edition, and the exercise that drills it.
 | Introduce Assertion                           | ✅ | [Introduce Assertion](../exercises/drills/10-conditional-logic/06-introduce-assertion/README.en.md)                                                     |
 | Separate Query from Modifier                  | ✅ | [Separate Query from Modifier](../exercises/drills/11-apis/01-separate-query-from-modifier/README.en.md)                                                |
 | Parameterize Function                         | ✅ | [Parameterize Function](../exercises/drills/11-apis/02-parameterize-function/README.en.md)                                                              |
-| Remove Flag Argument                          | ⬜ | —                                                                                                                                                       |
-| Preserve Whole Object                         | ⬜ | —                                                                                                                                                       |
-| Replace Parameter with Query                  | ⬜ | —                                                                                                                                                       |
-| Replace Query with Parameter                  | ⬜ | —                                                                                                                                                       |
-| Remove Setting Method                         | ⬜ | —                                                                                                                                                       |
-| Replace Constructor with Factory Function     | ⬜ | —                                                                                                                                                       |
-| Replace Function with Command                 | ⬜ | —                                                                                                                                                       |
-| Replace Command with Function                 | ⬜ | —                                                                                                                                                       |
+| Remove Flag Argument                          | ✅ | [Remove Flag Argument](../exercises/drills/11-apis/03-remove-flag-argument/README.en.md)                                                                |
+| Preserve Whole Object                         | ✅ | [Preserve Whole Object](../exercises/drills/11-apis/04-preserve-whole-object/README.en.md)                                                              |
+| Replace Parameter with Query                  | ✅ | [Replace Parameter with Query](../exercises/drills/11-apis/05-replace-parameter-with-query/README.en.md)                                                |
+| Replace Query with Parameter                  | ✅ | [Replace Query with Parameter](../exercises/drills/11-apis/06-replace-query-with-parameter/README.en.md)                                                |
+| Remove Setting Method                         | ✅ | [Remove Setting Method](../exercises/drills/11-apis/07-remove-setting-method/README.en.md)                                                              |
+| Replace Constructor with Factory Function     | ✅ | [Replace Constructor with Factory Function](../exercises/drills/11-apis/08-replace-constructor-with-factory-function/README.en.md)                      |
+| Replace Function with Command                 | ✅ | [Replace Function with Command](../exercises/drills/11-apis/09-replace-function-with-command/README.en.md)                                              |
+| Replace Command with Function                 | ✅ | [Replace Command with Function](../exercises/drills/11-apis/10-replace-command-with-function/README.en.md)                                              |
 | Pull Up Method                                | ⬜ | —                                                                                                                                                       |
 | Pull Up Field                                 | ⬜ | —                                                                                                                                                       |
 | Pull Up Constructor Body                      | ⬜ | —                                                                                                                                                       |

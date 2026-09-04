@@ -1,0 +1,29 @@
+{
+  "id": "drill-11-07",
+  "title": "Remove Setting Method",
+  "type": "drill",
+  "chapter": 11,
+  "refactorings": ["Remove Setting Method"],
+  "smells": ["Mutable Data"],
+  "difficulty": 2,
+  "estimatedMinutes": 25,
+  "prerequisites": ["drill-06-05"],
+  "apiFrozen": false,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "remove-setting-method",
+      "title": "A private field the constructor is the only writer of",
+      "tradeoff": "A mis-numbered ticket can no longer be corrected in place - fixing a bad serial now means voiding the ticket and issuing a new one instead of patching the one you have, and this drill does not build the voiding workflow that would make that a fair trade."
+    }
+  ],
+  "reviewFocus": [
+    "Does `Ticket` still expose any way to change `id` after construction - a `setId`, a public field, a second constructor - or is the private field truly the only place it is ever assigned?",
+    "Is `holderName` still settable through `transferTo`, and does the walkthrough say why that setter earns its place when `setId` didn't?",
+    "Does `tests-fixed/` prove only the one thing that changed - that a freshly issued ticket is findable by its own id - without depending on anything `tests/` already pins?",
+    "Does the walkthrough show why plain `readonly` cannot coexist with the old `setId` in the same class, rather than asserting it?",
+    "Does the walkthrough name a concrete case where `readonly` would not have been enough, or does it reach for `#private` everywhere out of caution?"
+  ],
+  "fixesBug": true
+}

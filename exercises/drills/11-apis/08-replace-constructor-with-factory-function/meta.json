@@ -1,0 +1,28 @@
+{
+  "id": "drill-11-08",
+  "title": "Replace Constructor with Factory Function",
+  "type": "drill",
+  "chapter": 11,
+  "refactorings": ["Replace Constructor with Factory Function"],
+  "smells": ["Primitive Obsession"],
+  "difficulty": 3,
+  "estimatedMinutes": 35,
+  "prerequisites": ["drill-11-07"],
+  "apiFrozen": false,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "replace-constructor-with-factory-function",
+      "title": "A private constructor behind three named factories",
+      "tradeoff": "One general-purpose constructor call becomes three named factory methods plus a small dispatcher for the one caller that only has a runtime string to go on, so a fourth ticket kind now means touching four places instead of one, and a reader has to learn which of the four to use instead of always writing `new Ticket(...)`."
+    }
+  ],
+  "reviewFocus": [
+    "Is `Ticket`'s constructor actually `private`, so `tsc` rejects a stray `new Ticket(...)` from outside `ticket.ts` - or is it only conventionally off-limits?",
+    "Does exactly one switch on `TicketType` survive, inside the batch dispatcher, or did a second one creep back into a caller that could have used a named factory instead?",
+    "Does `issueCompTicket` fail by returning `null`, or did the refactor leave a path where the old constructor's `throw` is still reachable from a caller that expects it can't happen?",
+    "Does the walkthrough admit the real cost - more names to keep straight, and a fourth ticket kind touching four places - rather than presenting the factories as a free win?",
+    "Does the walkthrough read `drill-10-04` and say plainly when this drill's dispatcher should graduate into that one's polymorphism, instead of implying the two moves are the same thing?"
+  ]
+}

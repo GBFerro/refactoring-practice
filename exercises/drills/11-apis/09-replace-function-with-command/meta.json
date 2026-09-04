@@ -1,0 +1,28 @@
+{
+  "id": "drill-11-09",
+  "title": "Replace Function with Command",
+  "type": "drill",
+  "chapter": 11,
+  "refactorings": ["Replace Function with Command"],
+  "smells": ["Long Function"],
+  "difficulty": 3,
+  "estimatedMinutes": 45,
+  "prerequisites": ["drill-06-01"],
+  "apiFrozen": false,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "replace-function-with-command",
+      "title": "Seven fields, three private methods",
+      "tradeoff": "A class with a constructor and five methods where there was one function - every caller that only wanted the total now instantiates an object to get it, and the object's fields can be read at all only because nothing calls execute() twice on the same instance and expects fresh state."
+    }
+  ],
+  "reviewFocus": [
+    "Are the seven fields on ScoreSeatBlockCommand exactly the seven temps the challenge threads through scoreSeatBlock, or did a phase quietly fold two of them into one?",
+    "Do readLayout, weighFactors and combine take zero parameters and touch only this.* - or did one of them keep a parameter, which would mean the class bought nothing?",
+    "Does explainTopBlock read its breakdown off the same command instance execute() just populated, or does a second, separately-coded computation risk drifting from the ranking?",
+    "Does the walkthrough name the concrete reason a plain Extract Function pass was awkward on the original function - not just assert that it was?",
+    "Compare against drill-11-10: does this walkthrough's test for 'does this earn a class' actually fail for the fee calculator there, or would it just as easily justify a class for that one too?"
+  ]
+}

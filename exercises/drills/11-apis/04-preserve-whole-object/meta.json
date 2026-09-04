@@ -1,0 +1,28 @@
+{
+  "id": "drill-11-04",
+  "title": "Preserve Whole Object",
+  "type": "drill",
+  "chapter": 11,
+  "refactorings": ["Preserve Whole Object"],
+  "smells": ["Data Clumps"],
+  "difficulty": 2,
+  "estimatedMinutes": 30,
+  "prerequisites": ["drill-06-08"],
+  "apiFrozen": false,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "preserve-whole-object",
+      "title": "Score the seat, not its fields",
+      "tradeoff": "Ties the scoring function to the Seat type, so it can never be reused for anything that isn't a seat - which is exactly why the shared positionScore helper underneath it does not get the same treatment."
+    }
+  ],
+  "reviewFocus": [
+    "Does `seatScore` take a whole `Seat` now, or did the refactor stop halfway with one of its three fields still passed loose?",
+    "Was `positionScore` also changed to take a whole object? If so, check what `bestStandingSpot` would now have to do to keep calling it - that is the dependency-direction argument failing in real time.",
+    "Does the walkthrough say why `seatScore` deserved the whole object and `positionScore` didn't in terms of what each function would have to import, not just 'one is bigger than the other'?",
+    "Is `bestUpgradeCandidate`'s duplicated three-argument call - once for `seat`, once for `best` - actually gone, or does one of the two copies still destructure the seat by hand?",
+    "Does the walkthrough distinguish this from Introduce Parameter Object (drill-06-08) by whether `Seat` already existed before this refactoring touched it, rather than just by which functions changed?"
+  ]
+}
