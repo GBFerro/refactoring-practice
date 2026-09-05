@@ -1,0 +1,28 @@
+{
+  "id": "drill-12-01",
+  "title": "Pull Up Method",
+  "type": "drill",
+  "chapter": 12,
+  "refactorings": ["Pull Up Method"],
+  "smells": ["Duplicated Code"],
+  "difficulty": 2,
+  "estimatedMinutes": 30,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "pull-up-method",
+      "title": "One billingAmountCents(), shared by both lesson types",
+      "tradeoff": "Lesson gains a field and a method neither lesson type used to declare for itself, and a private lesson's materials fee and a group lesson's supplies fee now have to mean literally the same thing forever, not just today."
+    }
+  ],
+  "reviewFocus": [
+    "Were PrivateLesson's materialsFeeCents and GroupLesson's suppliesFeeCents actually the same concept before the rename, or did renaming one to match the other paper over a real difference?",
+    "Does GroupLesson.billingAmountCents() charge a flat fee per lesson regardless of headcount, or does it secretly scale with the number of students - a difference the rename step alone would not have caught?",
+    "Is billingAmountCents() concrete on Lesson now, or did it stay abstract with two implementations underneath - the second is Pull Up Method in name only?",
+    "Was the fee field pulled up before the method, or did the method move first and reach for a field that did not exist yet on Lesson?",
+    "Compare against drill-12-04: this drill moves a method up because both subclasses need it identically; that one moves a method down because only one does. Does the walkthrough state the test that tells the two directions apart, or just assert the direction?"
+  ]
+}

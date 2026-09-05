@@ -1,0 +1,28 @@
+{
+  "id": "drill-12-02",
+  "title": "Pull Up Field",
+  "type": "drill",
+  "chapter": 12,
+  "refactorings": ["Pull Up Field"],
+  "smells": ["Duplicated Code"],
+  "difficulty": 2,
+  "estimatedMinutes": 20,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "pull-up-field",
+      "title": "insuredValueCents lives on Instrument",
+      "tradeoff": "Instrument's constructor grows a third parameter every subclass must thread through, and a future instrument category that genuinely carries no insured value - a loaner practice kazoo, say - inherits a field it cannot opt out of."
+    }
+  ],
+  "reviewFocus": [
+    "Is insuredValueCents declared and assigned in exactly one place - Instrument's constructor - or does one subclass still redeclare it alongside the inherited copy?",
+    "Did gradeLevel get pulled up along with insuredValueCents because the two happened to share a declaration style? WindInstrument.gradeLevel and StringInstrument.gradeLevel are read by isSuitableFor and restorationCostMultiplier respectively - does the walkthrough show those two call sites disagree about what the number means, not just that the names match?",
+    "Does monthlyInsurancePremiumCents still type its parameter as the WindInstrument | StringInstrument union, or did it quietly narrow to a single subclass and stop compiling for the other?",
+    "Compare against drill-12-05: that drill pulls a field out of a shared base rather than into one. Does this walkthrough's test for 'is it really the same field' - matching usage, not matching name - actually hold up against 12-05's field, or is it only argued in one direction?",
+    "If WindInstrument and StringInstrument disagreed on the insurance rate itself (one insured at 0.4%, one at 0.6%), would insuredValueCents still be safe to pull up? Does the walkthrough say why the rate living outside both classes is what makes this safe?"
+  ]
+}

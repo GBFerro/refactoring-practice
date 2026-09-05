@@ -24,7 +24,7 @@ npm install
 
 ## Exercises
 
-**Catalog coverage: 50/61 refactorings.**
+**Catalog coverage: 57/61 refactorings.**
 
 ### Chapter 6 — A First Set of Refactorings
 
@@ -108,7 +108,15 @@ npm install
 
 ### Chapter 12 — Dealing with Inheritance
 
-_No exercises in this module yet._
+| Exercise                                                                                               | Refactoring              | Smells          | Level | Min | Lang |
+| ------------------------------------------------------------------------------------------------------ | ------------------------ | --------------- | ----- | --- | ---- |
+| [Pull Up Method](./exercises/drills/12-inheritance/01-pull-up-method/README.en.md)                     | Pull Up Method           | Duplicated Code | ●●○   | 30  | 🌐   |
+| [Pull Up Field](./exercises/drills/12-inheritance/02-pull-up-field/README.en.md)                       | Pull Up Field            | Duplicated Code | ●●○   | 20  | 🌐   |
+| [Pull Up Constructor Body](./exercises/drills/12-inheritance/03-pull-up-constructor-body/README.en.md) | Pull Up Constructor Body | Duplicated Code | ●●○   | 30  | 🌐   |
+| [Push Down Method](./exercises/drills/12-inheritance/04-push-down-method/README.en.md)                 | Push Down Method         | Refused Bequest | ●○○   | 20  | 🌐   |
+| [Push Down Field](./exercises/drills/12-inheritance/05-push-down-field/README.en.md)                   | Push Down Field          | Temporary Field | ●●○   | 20  | 🌐   |
+| [Remove Subclass](./exercises/drills/12-inheritance/07-remove-subclass/README.en.md)                   | Remove Subclass          | Lazy Element    | ●○○   | 20  | 🌐   |
+| [Collapse Hierarchy](./exercises/drills/12-inheritance/09-collapse-hierarchy/README.en.md)             | Collapse Hierarchy       | Lazy Element    | ●○○   | 15  | 🌐   |
 
 ## Where to go next
 

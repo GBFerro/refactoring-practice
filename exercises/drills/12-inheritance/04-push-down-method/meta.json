@@ -1,0 +1,28 @@
+{
+  "id": "drill-12-04",
+  "title": "Push Down Method",
+  "type": "drill",
+  "chapter": 12,
+  "refactorings": ["Push Down Method"],
+  "smells": ["Refused Bequest"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": ["drill-12-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "push-down-method",
+      "title": "weeklyPayrollHours(), staff only",
+      "tradeoff": "FreelanceTutor loses a method it never called, and any future code that wants payroll hours from a bare Tutor reference now has to narrow to StaffTutor first instead of finding the method waiting on every tutor."
+    }
+  ],
+  "reviewFocus": [
+    "Does FreelanceTutor ever call weeklyPayrollHours() anywhere in the challenge? If not, the walkthrough's claim that only one subclass uses it should be checkable by grep, not just asserted.",
+    "Is weeklyPayrollHours() concrete only on StaffTutor after the move, or does Tutor still declare it in some form?",
+    "Did weeklyPayrollReport's filter change from a string check to a type predicate as part of this move, and does the walkthrough explain why that change was forced rather than optional?",
+    "Does the walkthrough name the further question - whether staff versus freelance should be a subclass distinction at all - or does it stop at 'moved the method, done'?",
+    "Compare against drill-12-01: that drill moves a method up because both subclasses need it the same way. Does this walkthrough's argument for moving down actually use the same test in reverse, or a different one?"
+  ]
+}

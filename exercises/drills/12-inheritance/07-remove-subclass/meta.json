@@ -1,0 +1,28 @@
+{
+  "id": "drill-12-07",
+  "title": "Remove Subclass",
+  "type": "drill",
+  "chapter": 12,
+  "refactorings": ["Remove Subclass"],
+  "smells": ["Lazy Element"],
+  "difficulty": 1,
+  "estimatedMinutes": 20,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "remove-subclass",
+      "title": "A boolean field where the subclass used to be",
+      "tradeoff": "TrialStudent's file and name disappear, so a future trial-only rule has no ready-made home to grow into - it has to earn a new subclass, or a new branch, from scratch."
+    }
+  ],
+  "reviewFocus": [
+    "Does TrialStudent still exist anywhere in the solution, even unused - including a file this task did not touch?",
+    "Is `trial` read in exactly one place in the solution (Student itself), or does some caller still branch on it directly?",
+    "Was the trial discount's rounding (Math.round, half-away-from-zero) preserved exactly, or did the collapse quietly change it to a truncation?",
+    "Does kindLabel() still return the same two strings, 'Regular' and 'Trial', unchanged from outside?",
+    "Compare against drill-12-06 (Replace Type Code with Subclasses, the inverse move): does the walkthrough actually explain when each direction is the right call, or only assert that this one is?"
+  ]
+}

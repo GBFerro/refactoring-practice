@@ -4,7 +4,7 @@
 
 Every refactoring in the second edition, and the exercise that drills it.
 
-**50/61 covered.**
+**57/61 covered.**
 
 | Refactoring                                   |   | Exercise                                                                                                                                                |
 | --------------------------------------------- | - | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -58,14 +58,14 @@ Every refactoring in the second edition, and the exercise that drills it.
 | Replace Constructor with Factory Function     | ✅ | [Replace Constructor with Factory Function](../exercises/drills/11-apis/08-replace-constructor-with-factory-function/README.en.md)                      |
 | Replace Function with Command                 | ✅ | [Replace Function with Command](../exercises/drills/11-apis/09-replace-function-with-command/README.en.md)                                              |
 | Replace Command with Function                 | ✅ | [Replace Command with Function](../exercises/drills/11-apis/10-replace-command-with-function/README.en.md)                                              |
-| Pull Up Method                                | ⬜ | —                                                                                                                                                       |
-| Pull Up Field                                 | ⬜ | —                                                                                                                                                       |
-| Pull Up Constructor Body                      | ⬜ | —                                                                                                                                                       |
-| Push Down Method                              | ⬜ | —                                                                                                                                                       |
-| Push Down Field                               | ⬜ | —                                                                                                                                                       |
+| Pull Up Method                                | ✅ | [Pull Up Method](../exercises/drills/12-inheritance/01-pull-up-method/README.en.md)                                                                     |
+| Pull Up Field                                 | ✅ | [Pull Up Field](../exercises/drills/12-inheritance/02-pull-up-field/README.en.md)                                                                       |
+| Pull Up Constructor Body                      | ✅ | [Pull Up Constructor Body](../exercises/drills/12-inheritance/03-pull-up-constructor-body/README.en.md)                                                 |
+| Push Down Method                              | ✅ | [Push Down Method](../exercises/drills/12-inheritance/04-push-down-method/README.en.md)                                                                 |
+| Push Down Field                               | ✅ | [Push Down Field](../exercises/drills/12-inheritance/05-push-down-field/README.en.md)                                                                   |
 | Replace Type Code with Subclasses             | ⬜ | —                                                                                                                                                       |
-| Remove Subclass                               | ⬜ | —                                                                                                                                                       |
+| Remove Subclass                               | ✅ | [Remove Subclass](../exercises/drills/12-inheritance/07-remove-subclass/README.en.md)                                                                   |
 | Extract Superclass                            | ⬜ | —                                                                                                                                                       |
-| Collapse Hierarchy                            | ⬜ | —                                                                                                                                                       |
+| Collapse Hierarchy                            | ✅ | [Collapse Hierarchy](../exercises/drills/12-inheritance/09-collapse-hierarchy/README.en.md)                                                             |
 | Replace Subclass with Delegate                | ⬜ | —                                                                                                                                                       |
 | Replace Superclass with Delegate              | ⬜ | —                                                                                                                                                       |

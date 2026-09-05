@@ -1,0 +1,28 @@
+{
+  "id": "drill-12-05",
+  "title": "Push Down Field",
+  "type": "drill",
+  "chapter": 12,
+  "refactorings": ["Push Down Field"],
+  "smells": ["Temporary Field"],
+  "difficulty": 2,
+  "estimatedMinutes": 20,
+  "prerequisites": ["drill-12-02"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "push-down-field",
+      "title": "buyoutCreditsCents lives on LeaseToOwnRental only",
+      "tradeoff": "The two functions that used to read buyoutCreditsCents off any InstrumentRental with a one-line `?? 0` now have to narrow to LeaseToOwnRental first - a filter step neither old one-liner needed - to buy a type that can no longer represent a trial rental with a buyout balance."
+    }
+  ],
+  "reviewFocus": [
+    "Is buyoutCreditsCents still declared on InstrumentRental anywhere, even as a comment or a leftover `| null` on a type nothing constructs that way any more?",
+    "Is LeaseToOwnRental.buyoutCreditsCents typed as number, or did it stay number | null out of caution after the field moved?",
+    "Does remainingBuyoutCents still contain a `?? 0` guarding against a null that LeaseToOwnRental can no longer produce?",
+    "Compare against drill-12-02: that drill merges two fields into a shared base because they are used the same way. Does this walkthrough show the opposite check - that TrialRental never reads or writes buyoutCreditsCents at all - with the same rigor, or does it just assert the field is unused?",
+    "Do rentalLine and totalBuyoutCreditsCents both narrow to LeaseToOwnRental the same way - a type predicate, an instanceof check - or does one use a different technique than the other for no stated reason?"
+  ]
+}

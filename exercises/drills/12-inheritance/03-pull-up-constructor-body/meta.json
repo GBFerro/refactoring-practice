@@ -1,0 +1,28 @@
+{
+  "id": "drill-12-03",
+  "title": "Pull Up Constructor Body",
+  "type": "drill",
+  "chapter": 12,
+  "refactorings": ["Pull Up Constructor Body"],
+  "smells": ["Duplicated Code"],
+  "difficulty": 2,
+  "estimatedMinutes": 30,
+  "prerequisites": ["drill-12-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "pull-up-constructor-body",
+      "title": "One shared prologue, computed before super() where it has to be",
+      "tradeoff": "Enrolment's constructor now demands three already-finished values instead of letting each subclass fill in its own fields at its own pace, so a fourth shared field has to be threaded through every subclass's super() call instead of just being assigned."
+    }
+  ],
+  "reviewFocus": [
+    "Does Enrolment's constructor read anything through `this` before super() has returned, or does every value it needs arrive as an already-computed parameter?",
+    "Are sessionsPerTerm and ratePerSessionCents still stored as fields anywhere, now that nothing outside the constructor ever read them?",
+    "Does the walkthrough show why moving `this.tuitionCents = this.sessionsPerTerm * this.ratePerSessionCents` up verbatim fails, rather than just asserting that it does?",
+    "Do PrivateLessonEnrolment and GroupLessonEnrolment still each validate the student name themselves, or is that check made exactly once, in Enrolment?",
+    "Does the walkthrough name which of the four docs/NAMING.md questions decided `tuitionCents`, `SESSIONS_PER_TERM`, or `instrumentTutor` - and which rejected candidate each one beat?"
+  ]
+}

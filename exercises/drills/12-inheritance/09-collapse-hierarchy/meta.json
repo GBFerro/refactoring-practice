@@ -1,0 +1,28 @@
+{
+  "id": "drill-12-09",
+  "title": "Collapse Hierarchy",
+  "type": "drill",
+  "chapter": 12,
+  "refactorings": ["Collapse Hierarchy"],
+  "smells": ["Lazy Element"],
+  "difficulty": 1,
+  "estimatedMinutes": 15,
+  "prerequisites": ["drill-12-07"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "collapse-hierarchy",
+      "title": "One class, kept under the name callers already use",
+      "tradeoff": "There is no longer a superclass sitting ready for a second kind of room to specialise from - the next room type that genuinely varies has to reintroduce the split itself, from a single class."
+    }
+  ],
+  "reviewFocus": [
+    "Does `Room` still exist anywhere in the solution after the collapse?",
+    "Which name survived - PracticeRoom or Room - and does the walkthrough justify it by something other than convention, given PracticeRoom is the only one either file ever exported?",
+    "Is RoomProps still named RoomProps after the merge, and is that choice discussed rather than just left as a leftover?",
+    "Does renderPracticeSchedule's output - line formatting, the total, the empty-schedule message - match byte for byte before and after?",
+    "Compare against drill-12-07: does the walkthrough say plainly what makes these two refactorings different, not just that they are?"
+  ]
+}

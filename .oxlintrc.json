@@ -16,7 +16,8 @@
         "eslint/max-lines-per-function": "off",
         "eslint/max-depth": "off",
         "eslint/max-params": "off",
-        "eslint/max-nested-callbacks": "off"
+        "eslint/max-nested-callbacks": "off",
+        "typescript/no-extraneous-class": "off"
       }
     },
     {
