@@ -4,7 +4,7 @@
 
 Every refactoring in the second edition, and the exercise that drills it.
 
-**57/61 covered.**
+**61/61 covered.**
 
 | Refactoring                                   |   | Exercise                                                                                                                                                |
 | --------------------------------------------- | - | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -63,9 +63,9 @@ Every refactoring in the second edition, and the exercise that drills it.
 | Pull Up Constructor Body                      | ✅ | [Pull Up Constructor Body](../exercises/drills/12-inheritance/03-pull-up-constructor-body/README.en.md)                                                 |
 | Push Down Method                              | ✅ | [Push Down Method](../exercises/drills/12-inheritance/04-push-down-method/README.en.md)                                                                 |
 | Push Down Field                               | ✅ | [Push Down Field](../exercises/drills/12-inheritance/05-push-down-field/README.en.md)                                                                   |
-| Replace Type Code with Subclasses             | ⬜ | —                                                                                                                                                       |
+| Replace Type Code with Subclasses             | ✅ | [Replace Type Code with Subclasses](../exercises/drills/12-inheritance/06-replace-type-code-with-subclasses/README.en.md)                               |
 | Remove Subclass                               | ✅ | [Remove Subclass](../exercises/drills/12-inheritance/07-remove-subclass/README.en.md)                                                                   |
-| Extract Superclass                            | ⬜ | —                                                                                                                                                       |
+| Extract Superclass                            | ✅ | [Extract Superclass](../exercises/drills/12-inheritance/08-extract-superclass/README.en.md)                                                             |
 | Collapse Hierarchy                            | ✅ | [Collapse Hierarchy](../exercises/drills/12-inheritance/09-collapse-hierarchy/README.en.md)                                                             |
-| Replace Subclass with Delegate                | ⬜ | —                                                                                                                                                       |
-| Replace Superclass with Delegate              | ⬜ | —                                                                                                                                                       |
+| Replace Subclass with Delegate                | ✅ | [Replace Subclass with Delegate](../exercises/drills/12-inheritance/10-replace-subclass-with-delegate/README.en.md)                                     |
+| Replace Superclass with Delegate              | ✅ | [Replace Superclass with Delegate](../exercises/drills/12-inheritance/11-replace-superclass-with-delegate/README.en.md)                                 |

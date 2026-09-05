@@ -1,0 +1,28 @@
+{
+  "id": "drill-12-08",
+  "title": "Extract Superclass",
+  "type": "drill",
+  "chapter": 12,
+  "refactorings": ["Extract Superclass"],
+  "smells": ["Duplicated Code"],
+  "difficulty": 2,
+  "estimatedMinutes": 30,
+  "prerequisites": ["drill-12-01"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "extract-superclass",
+      "title": "One Bookable superclass, one method left alone",
+      "tradeoff": "InstrumentRental and RoomBooking now depend on a shared Bookable base for identity, cost, and description structure, so a third kind of bookable thing either fits those same assumptions or forces a rethink of the base. lateFeeCents stays duplicated in both subclasses on purpose, which looks unfinished to a quick read of the diff."
+    }
+  ],
+  "reviewFocus": [
+    "Does Bookable declare lateFeeCents anywhere, abstract or concrete? It should not - check whether the walkthrough argues this or just leaves it out silently.",
+    "Do InstrumentRental.lateFeeCents and RoomBooking.lateFeeCents return the same number for two items charging the same rate over the same overage? They should not - if they do, the two meanings got collapsed into one.",
+    "Bookable's shared fields (itemName, units, rateCentsPerUnit) - did the extraction invent this vocabulary, or does it silently keep one subclass's original field name and rename only the other to match?",
+    "Is bookingDescription() abstract on Bookable, or did the superclass end up with a default implementation neither subclass actually wants?",
+    "Compare the walkthrough's argument for is-a here against drill-07-05's Extract Class: does it name the concrete thing that would have to be true for a shared component (has-a) to be the better call, or does it just assert Extract Superclass is right?"
+  ]
+}

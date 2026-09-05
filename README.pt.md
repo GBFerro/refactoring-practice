@@ -24,7 +24,7 @@ npm install
 
 ## Exercises
 
-**Cobertura do catálogo: 57/61 refactorings.**
+**Cobertura do catálogo: 61/61 refactorings.**
 
 ### Chapter 6 — A First Set of Refactorings
 
@@ -108,15 +108,19 @@ npm install
 
 ### Chapter 12 — Dealing with Inheritance
 
-| Exercício                                                                                              | Refactoring              | Smells          | Nível | Min | Idioma |
-| ------------------------------------------------------------------------------------------------------ | ------------------------ | --------------- | ----- | --- | ------ |
-| [Pull Up Method](./exercises/drills/12-inheritance/01-pull-up-method/README.en.md)                     | Pull Up Method           | Duplicated Code | ●●○   | 30  | 🌐     |
-| [Pull Up Field](./exercises/drills/12-inheritance/02-pull-up-field/README.en.md)                       | Pull Up Field            | Duplicated Code | ●●○   | 20  | 🌐     |
-| [Pull Up Constructor Body](./exercises/drills/12-inheritance/03-pull-up-constructor-body/README.en.md) | Pull Up Constructor Body | Duplicated Code | ●●○   | 30  | 🌐     |
-| [Push Down Method](./exercises/drills/12-inheritance/04-push-down-method/README.en.md)                 | Push Down Method         | Refused Bequest | ●○○   | 20  | 🌐     |
-| [Push Down Field](./exercises/drills/12-inheritance/05-push-down-field/README.en.md)                   | Push Down Field          | Temporary Field | ●●○   | 20  | 🌐     |
-| [Remove Subclass](./exercises/drills/12-inheritance/07-remove-subclass/README.en.md)                   | Remove Subclass          | Lazy Element    | ●○○   | 20  | 🌐     |
-| [Collapse Hierarchy](./exercises/drills/12-inheritance/09-collapse-hierarchy/README.en.md)             | Collapse Hierarchy       | Lazy Element    | ●○○   | 15  | 🌐     |
+| Exercício                                                                                                                | Refactoring                       | Smells            | Nível | Min | Idioma |
+| ------------------------------------------------------------------------------------------------------------------------ | --------------------------------- | ----------------- | ----- | --- | ------ |
+| [Pull Up Method](./exercises/drills/12-inheritance/01-pull-up-method/README.en.md)                                       | Pull Up Method                    | Duplicated Code   | ●●○   | 30  | 🌐     |
+| [Pull Up Field](./exercises/drills/12-inheritance/02-pull-up-field/README.en.md)                                         | Pull Up Field                     | Duplicated Code   | ●●○   | 20  | 🌐     |
+| [Pull Up Constructor Body](./exercises/drills/12-inheritance/03-pull-up-constructor-body/README.en.md)                   | Pull Up Constructor Body          | Duplicated Code   | ●●○   | 30  | 🌐     |
+| [Push Down Method](./exercises/drills/12-inheritance/04-push-down-method/README.en.md)                                   | Push Down Method                  | Refused Bequest   | ●○○   | 20  | 🌐     |
+| [Push Down Field](./exercises/drills/12-inheritance/05-push-down-field/README.en.md)                                     | Push Down Field                   | Temporary Field   | ●●○   | 20  | 🌐     |
+| [Replace Type Code with Subclasses](./exercises/drills/12-inheritance/06-replace-type-code-with-subclasses/README.en.md) | Replace Type Code with Subclasses | Repeated Switches | ●●●   | 45  | 🌐     |
+| [Remove Subclass](./exercises/drills/12-inheritance/07-remove-subclass/README.en.md)                                     | Remove Subclass                   | Lazy Element      | ●○○   | 20  | 🌐     |
+| [Extract Superclass](./exercises/drills/12-inheritance/08-extract-superclass/README.en.md)                               | Extract Superclass                | Duplicated Code   | ●●○   | 30  | 🌐     |
+| [Collapse Hierarchy](./exercises/drills/12-inheritance/09-collapse-hierarchy/README.en.md)                               | Collapse Hierarchy                | Lazy Element      | ●○○   | 15  | 🌐     |
+| [Replace Subclass with Delegate](./exercises/drills/12-inheritance/10-replace-subclass-with-delegate/README.en.md)       | Replace Subclass with Delegate    | Repeated Switches | ●●●   | 35  | 🌐     |
+| [Replace Superclass with Delegate](./exercises/drills/12-inheritance/11-replace-superclass-with-delegate/README.en.md)   | Replace Superclass with Delegate  | Refused Bequest   | ●●●   | 35  | 🌐     |
 
 ## Por onde seguir
 

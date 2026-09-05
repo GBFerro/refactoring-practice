@@ -211,7 +211,7 @@ equally to both, and the entire reason two subclasses exist were this one billin
 difference. At that point, Push Down Method is treating a symptom: you'd have moved the
 mismatched method to where it belongs, but the deeper mismatch — using subclassing to model
 one varying axis of behaviour — would still be sitting underneath, and the sharper tool is
-`drill-12-10`, *Replace Subclass
+[`drill-12-10`](../../../10-replace-subclass-with-delegate/README.en.md), *Replace Subclass
 with Delegate*: give `Tutor` a single `payMethod` collaborator (a
 `StaffPayroll` or a `FreelanceInvoicing`) instead of a subclass per payment style, and the
 question "does this tutor get payroll hours" becomes "does this tutor's pay method support

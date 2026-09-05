@@ -1,0 +1,28 @@
+{
+  "id": "drill-12-10",
+  "title": "Replace Subclass with Delegate",
+  "type": "drill",
+  "chapter": 12,
+  "refactorings": ["Replace Subclass with Delegate"],
+  "smells": ["Repeated Switches"],
+  "difficulty": 3,
+  "estimatedMinutes": 35,
+  "prerequisites": [],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "replace-subclass-with-delegate",
+      "title": "One TermPricing, a plan object standing in for the subclass",
+      "tradeoff": "TermPricing takes a TermLengthPlan as a constructor argument instead of the length being baked into a type name, so a caller can no longer tell a standard term from an intensive one by asking what class an object is - it has to read the plan's numbers or a label the code did not have to carry before."
+    }
+  ],
+  "reviewFocus": [
+    "Is the category-discount switch written in exactly one place in the solution, or did one copy survive under a different name?",
+    "Is TermPricing still declared abstract anywhere, or does the solution's class construct directly with `new TermPricing(plan, category)`?",
+    "Do StandardTermPricing and IntensiveTermPricing still exist as files or exported names anywhere in the solution?",
+    "Does the walkthrough name the second axis explicitly - student category - and show why it could not be added as a third subclass dimension without multiplying classes, rather than just asserting delegation is nicer?",
+    "Compare against drill-12-11: that drill also reaches for a delegate, for the opposite reason - a superclass whose bequest was mostly refused, not a subclass whose axis ran out of room. Does this walkthrough state its own test for reaching for a delegate, distinct from 12-11's, rather than leaning on the shared word?"
+  ]
+}

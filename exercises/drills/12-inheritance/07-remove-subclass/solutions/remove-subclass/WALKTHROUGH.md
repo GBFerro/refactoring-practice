@@ -149,7 +149,7 @@ tips; I would start worrying around three or four branch points.
 
 ## The question this drill and its inverse both have to answer
 
-`drill-12-06` — Replace Type
+[`drill-12-06`](../../../06-replace-type-code-with-subclasses/README.en.md) — Replace Type
 Code with Subclasses, in this same module — does the exact opposite move for the exact
 opposite reason: it takes a type code that a growing pile of conditionals keeps checking and
 turns it into subclasses, one per value, so each behaviour that varies with the code lives
@@ -181,7 +181,9 @@ back out. Neither direction is the "advanced" one.
   touched anything; introducing a union would have been a second, unrelated refactoring
   (Replace Primitive with a richer type) riding along with this one. If a third kind
   appears, that is the moment to revisit this choice — and, per the note above, quite
-  possibly the moment `drill-12-06`'s move becomes the right one again.
+  possibly the moment
+  [`drill-12-06`](../../../06-replace-type-code-with-subclasses/README.en.md)'s move
+  becomes the right one again.
 - **Deleting `TrialStudent` before touching `enrolStudent`.** Would not compile in between
   — a bigger single step disguised as safety. If it feels like one large nervous edit
   instead of five small confident ones, that feeling is the point of doing it this way

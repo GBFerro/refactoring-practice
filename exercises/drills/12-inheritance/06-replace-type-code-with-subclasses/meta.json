@@ -1,0 +1,28 @@
+{
+  "id": "drill-12-06",
+  "title": "Replace Type Code with Subclasses",
+  "type": "drill",
+  "chapter": 12,
+  "refactorings": ["Replace Type Code with Subclasses"],
+  "smells": ["Repeated Switches"],
+  "difficulty": 3,
+  "estimatedMinutes": 45,
+  "prerequisites": ["drill-10-04"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "replace-type-code-with-subclasses",
+      "title": "One class per instrument family, one switch left in the factory",
+      "tradeoff": "Four instrument classes stand in for one, so a fifth category means adding a whole file instead of a case; and because the class carries the identity now, LendingStatus has to keep living as a plain mutable field on the shared base, which means an instrument's family is easy to find (open its file) while its current loan status is not (grep every subclass for the one field they all inherit)."
+    }
+  ],
+  "reviewFocus": [
+    "Is there exactly one switch on InstrumentCategory left in the whole solution - inside addInstrument - or did a second one sneak back into a subclass or into lending-desk.ts?",
+    "Does LendingStatus still exist as a plain, mutable field on the shared Instrument base, never promoted into a subclass axis of its own?",
+    "Do the four instrument subclasses genuinely disagree on deposit, maintenance interval, and accessory, or did two categories end up with copy-pasted numbers that happen to coincide?",
+    "Does the walkthrough state why LendingStatus fails the exact test that justified subclassing InstrumentCategory - an instrument changing status after construction - rather than just asserting the two are different?",
+    "Compare against drill-12-07 (Remove Subclass, the inverse move) and drill-10-04 (Replace Conditional with Polymorphism, the closest neighbour): does the walkthrough draw an actual line between the three, or only gesture at them being related?"
+  ]
+}

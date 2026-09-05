@@ -1,0 +1,29 @@
+{
+  "id": "drill-12-11",
+  "title": "Replace Superclass with Delegate",
+  "type": "drill",
+  "chapter": 12,
+  "refactorings": ["Replace Superclass with Delegate"],
+  "smells": ["Refused Bequest"],
+  "difficulty": 3,
+  "estimatedMinutes": 35,
+  "prerequisites": ["drill-12-10"],
+  "apiFrozen": true,
+  "providesTests": true,
+  "translations": ["en"],
+  "solutions": [
+    {
+      "slug": "replace-superclass-with-delegate",
+      "title": "LessonArchive holds a LessonRoster, and is not one",
+      "tradeoff": "add, entries, and count are now hand-written one-line forwards on LessonArchive instead of free from extends, and any future LessonRoster method - a legitimate one, not a refused one - has to be added to LessonArchive by hand before an archive can use it, where inheritance would have handed it over automatically."
+    }
+  ],
+  "reviewFocus": [
+    "Does LessonArchive still `extends LessonRoster` anywhere in the solution, even with the throwing overrides removed?",
+    "Count LessonRoster's public methods against how many LessonArchive's solution exposes. If the answer is three of six, does the walkthrough state that count plainly?",
+    "Does the walkthrough mention replaceAt by name as the method the challenge's throwing overrides forgot to cover, or does it only discuss insertAt and removeAt, the two that do throw?",
+    "Is there anywhere in the solution that still type-checks a LessonArchive as a LessonRoster - a leftover parameter type, an array typed too broadly - that would let the refused methods back in through a side door?",
+    "Compare against drill-12-10: that drill replaces a subclass because a second axis needed room a single-parent hierarchy could not give it; this one replaces a superclass because most of what it offered was never wanted. Does the walkthrough state the different question each one answers, or treat 'reach for a delegate' as one lesson with two names?"
+  ],
+  "fixesBug": true
+}

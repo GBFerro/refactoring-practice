@@ -12,7 +12,7 @@ entirely by the one boolean already sitting unread in `EnrolmentInput`.
 **What it costs:** the type disappears as a place to hang future trial-only behaviour.
 Today the trade is free, because `enrolStudent` was already the only place either class got
 constructed. See
-`drill-12-06` for the exact
+[`drill-12-06`](../../../06-replace-type-code-with-subclasses/README.en.md) for the exact
 opposite call, made for the opposite reason.
 
 ---
